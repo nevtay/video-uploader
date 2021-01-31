@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "./App.css";
 import PageOne from "./pages/PageOne";
 import PageTwo from "./pages/PageTwo";
 import PageThree from "./pages/PageThree";
+import "./styles/main.scss";
 
 function App() {
   const MAX_PAGES = 3;
