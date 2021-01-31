@@ -33,7 +33,7 @@ const PageOne = ({
 
   return (
     <>
-      <div className="form-group">
+      <div className="form-group mb-4">
         <div className="custom-file">
           <input
             type="file"
@@ -48,7 +48,7 @@ const PageOne = ({
           </label>
         </div>
       </div>
-      <div className="form-group">
+      <div className="form-group mb-4">
         <input
           type="text"
           name="videoTitle"
@@ -59,7 +59,7 @@ const PageOne = ({
           required
         />
       </div>
-      <div className="form-group">
+      <div className="form-group mb-4">
         <input
           type="date"
           name="videoStartDateTime"
@@ -70,7 +70,7 @@ const PageOne = ({
           required
         />
       </div>
-      <div className="form-group">
+      <div className="form-group mb-4">
         <input
           type="string"
           name="postalCode"

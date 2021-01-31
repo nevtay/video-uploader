@@ -21,7 +21,7 @@ function App() {
         Current Page: {page} of {MAX_PAGES}
       </p>
       <h1>Video Uploader</h1>
-      <form>
+      <form className="container fluid">
         {page === 1 && (
           <PageOne
             page={page}
