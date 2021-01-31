@@ -15,8 +15,7 @@ const PageOne = ({
   handleVideoLocation,
 }) => {
   // move forward one page
-  const toNextPage = (e) => {
-    // e.preventDefault();
+  const toNextPage = () => {
     if (page === 3) {
       return;
     } else {
@@ -25,8 +24,7 @@ const PageOne = ({
   };
 
   // move back one page
-  const toPrevPage = (e) => {
-    // e.preventDefault();
+  const toPrevPage = () => {
     if (page === 1) return;
     handlePage((page) => {
       return (page = page - 1);
