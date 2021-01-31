@@ -5,7 +5,11 @@ import PageTwo from "./pages/PageTwo";
 import PageThree from "./pages/PageThree";
 
 function App() {
+  const MAX_PAGES = 3;
+  // track current page of wizard form
   const [page, setPage] = useState(1);
+
+  // metadata fields for page one
   const [fileName, setFileName] = useState("");
   const [videoTitle, setVideoTitle] = useState("");
   const [videoDateTime, setVideoDateTime] = useState("");
@@ -13,7 +17,9 @@ function App() {
 
   return (
     <div className="App">
-      <p>Current Page: {page}</p>
+      <p>
+        Current Page: {page} of {MAX_PAGES}
+      </p>
       <h1>Video Uploader</h1>
       <form>
         {page === 1 && (
