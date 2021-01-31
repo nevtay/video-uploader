@@ -33,38 +33,48 @@ const PageOne = ({
 
   return (
     <>
-      <input
-        type="file"
-        name="fileName"
-        placeholder="File Name"
-        onChange={handleFileName}
-        value={fileName}
-      />
-      <input
-        type="text"
-        name="videoTitle"
-        placeholder="Title (required)"
-        value={videoTitle}
-        onChange={(e) => handleVideoTitle(e.target.value)}
-        required
-      />
-      <input
-        type="date"
-        name="videoStartDateTime"
-        placeholder="Start Date/Time (required)"
-        value={videoDateTime}
-        onChange={(e) => handleVideoDateTime(e.target.value)}
-        required
-      />
-      <input
-        type="string"
-        name="postalCode"
-        placeholder="Postal Code (optional)"
-        value={videoLocation}
-        onChange={(e) => handleVideoLocation(e.target.value)}
-      />
-      <NextButton handleOnClick={toNextPage} page={page} />
-      <PrevButton handleOnClick={toPrevPage} page={page} />
+      <div className="form-group">
+        <input
+          type="file"
+          name="fileName"
+          placeholder="File Name"
+          onChange={handleFileName}
+          value={fileName}
+        />
+      </div>
+      <div className="form-group">
+        <input
+          type="text"
+          name="videoTitle"
+          placeholder="Title (required)"
+          value={videoTitle}
+          onChange={(e) => handleVideoTitle(e.target.value)}
+          required
+        />
+      </div>
+      <div className="form-group">
+        <input
+          type="date"
+          name="videoStartDateTime"
+          placeholder="Start Date/Time (required)"
+          value={videoDateTime}
+          onChange={(e) => handleVideoDateTime(e.target.value)}
+          required
+        />
+      </div>
+      <div className="form-group">
+        <input
+          type="string"
+          name="postalCode"
+          placeholder="Postal Code (optional)"
+          value={videoLocation}
+          onChange={(e) => handleVideoLocation(e.target.value)}
+        />
+      </div>
+      <div className="btn-group">
+        <NextButton handleOnClick={toNextPage} page={page} />
+        <PrevButton handleOnClick={toPrevPage} page={page} />
+      </div>
     </>
   );
 };

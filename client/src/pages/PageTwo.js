@@ -51,8 +51,10 @@ const PageTwo = ({ page, handlePage }) => {
         </p>
       </section>
       <input type="checkbox"></input>
-      <NextButton handleOnClick={toNextPage} page={page} />
-      <PrevButton handleOnClick={toPrevPage} page={page} />
+      <div className="btn-group">
+        <NextButton handleOnClick={toNextPage} page={page} />
+        <PrevButton handleOnClick={toPrevPage} page={page} />
+      </div>
     </>
   );
 };

@@ -4,11 +4,19 @@ const PrevButton = ({ handleOnClick, page }) => {
   return (
     <>
       {page === 1 && (
-        <button disabled onClick={handleOnClick}>
+        <button
+          className="btn btn-outline-secondary"
+          disabled
+          onClick={handleOnClick}
+        >
           Previous
         </button>
       )}
-      {page !== 1 && <button onClick={handleOnClick}>Previous</button>}
+      {page !== 1 && (
+        <button className="btn btn-outline-secondary" onClick={handleOnClick}>
+          Previous
+        </button>
+      )}
     </>
   );
 };
