@@ -1,7 +1,11 @@
 import React from "react";
 
 const PageThree = () => {
-  return <div></div>;
+  return (
+    <>
+      <input type="submit" value="Upload video"></input>
+    </>
+  );
 };
 
 export default PageThree;
