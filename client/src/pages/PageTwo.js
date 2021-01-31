@@ -3,7 +3,7 @@ import React from "react";
 const PageTwo = () => {
   return (
     <>
-      <secton>
+      <section>
         <h2>TERMS AND CONDITIONS</h2>
         <div>
           <strong>Application of these terms 1. </strong>
@@ -31,7 +31,7 @@ const PageTwo = () => {
             essence.
           </p>
         </div>
-      </secton>
+      </section>
       <input type="checkbox">
         I agree to the terms and condition listed above
       </input>
