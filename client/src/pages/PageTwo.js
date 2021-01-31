@@ -23,9 +23,8 @@ const PageTwo = ({ page, handlePage }) => {
   };
   return (
     <>
-      <section>
+      <div className="form-group">
         <h2>TERMS AND CONDITIONS</h2>
-
         <strong>Application of these terms 1. </strong>
         <p>
           These terms and conditions shall apply in respect of all goods and
@@ -49,8 +48,11 @@ const PageTwo = ({ page, handlePage }) => {
           the production of additional copies. 4. Times given for delivery of
           the Service are estimates only and time shall not be of the essence.
         </p>
-      </section>
-      <input type="checkbox"></input>
+      </div>
+      <div className="form-group">
+        <input type="checkbox" className="custom-checkbox mr-2" />
+        <span>I acknowledge the terms and conditions above</span>
+      </div>
       <div className="btn-group">
         <NextButton handleOnClick={toNextPage} page={page} />
         <PrevButton handleOnClick={toPrevPage} page={page} />

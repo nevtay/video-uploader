@@ -34,18 +34,25 @@ const PageOne = ({
   return (
     <>
       <div className="form-group">
-        <input
-          type="file"
-          name="fileName"
-          placeholder="File Name"
-          onChange={handleFileName}
-          value={fileName}
-        />
+        <div className="custom-file">
+          <input
+            type="file"
+            name="fileName"
+            className="custom-file-input"
+            placeholder="File Name"
+            onChange={handleFileName}
+            value={fileName}
+          />
+          <label class="custom-file-label" for="customFile">
+            Choose file
+          </label>
+        </div>
       </div>
       <div className="form-group">
         <input
           type="text"
           name="videoTitle"
+          className="form-control"
           placeholder="Title (required)"
           value={videoTitle}
           onChange={(e) => handleVideoTitle(e.target.value)}
@@ -56,6 +63,7 @@ const PageOne = ({
         <input
           type="date"
           name="videoStartDateTime"
+          className="form-control"
           placeholder="Start Date/Time (required)"
           value={videoDateTime}
           onChange={(e) => handleVideoDateTime(e.target.value)}
@@ -66,6 +74,7 @@ const PageOne = ({
         <input
           type="string"
           name="postalCode"
+          className="form-control"
           placeholder="Postal Code (optional)"
           value={videoLocation}
           onChange={(e) => handleVideoLocation(e.target.value)}
