@@ -11,6 +11,7 @@ function App() {
 
   // button to move forward one page
   const toNextPage = (e) => {
+    e.preventDefault();
     if (page === 3) {
       return;
     } else {
@@ -20,6 +21,7 @@ function App() {
 
   // button to move back one page
   const toPrevPage = (e) => {
+    e.preventDefault();
     if (page === 1) return;
     setPage((page) => {
       return (page = page - 1);
@@ -28,13 +30,14 @@ function App() {
 
   return (
     <div className="App">
+      <p>Current Page: {page}</p>
       <h1>Video Uploader</h1>
       <form>
         {page === 1 && <PageOne />}
         {page === 2 && <PageTwo />}
         {page === 3 && <PageThree />}
-        <NextButton handleOnClick={toNextPage} />
-        <PrevButton handleOnClick={toPrevPage} />
+        <NextButton handleOnClick={toNextPage} page={page} />
+        <PrevButton handleOnClick={toPrevPage} page={page} />
       </form>
     </div>
   );
