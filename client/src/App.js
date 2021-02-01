@@ -5,11 +5,14 @@ import PageThree from "./pages/PageThree";
 import "./styles/main.scss";
 
 function App() {
+  // constants
   const MAX_PAGES = 3;
+
   // track current page of wizard form
   const [page, setPage] = useState(1);
 
   // metadata fields for page one
+  const [videoPreview, setVideoPreview] = useState(null)
   const [fileName, setFileName] = useState("");
   const [videoTitle, setVideoTitle] = useState("");
   const [videoDateTime, setVideoDateTime] = useState("");
@@ -19,11 +22,15 @@ function App() {
     <div className="container-fluid">
       <h1 className="display-3 mb-5 text-center">Video Uploader</h1>
       <form className="m-auto col-sm-10 col-md-7 col-lg-5">
+        <video className="embed-responsive embed-responsive-16by9" alt="Video Preview">
+          <source src={videoPreview} type="video/mp4" />
+        </video>
         {page === 1 && (
           <PageOne
             page={page}
             handlePage={setPage}
             fileName={fileName}
+            handleVideoPreview={setVideoPreview}
             handleFileName={setFileName}
             videoTitle={videoTitle}
             handleVideoTitle={setVideoTitle}
