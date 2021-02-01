@@ -23,9 +23,16 @@ const PageThree = ({ page, handlePage }) => {
   };
   return (
     <>
-      <input type="submit" value="Upload video" />
-      <PrevButton handleOnClick={toPrevPage} page={page} />
-      <NextButton handleOnClick={toNextPage} page={page} />
+      <div className="form-group">
+        <p>Review video metadata</p>
+      </div>
+      <div className="form-group">
+        <input type="submit" value="Upload video" />
+      </div>
+      <div className="btn-group mt-4">
+        <PrevButton handleOnClick={toPrevPage} page={page} />
+        <NextButton handleOnClick={toNextPage} page={page} />
+      </div>
     </>
   );
 };
