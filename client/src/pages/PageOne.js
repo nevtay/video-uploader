@@ -142,15 +142,13 @@ const PageOne = ({
         />
       </div>
       {errors.length > 0
-        &&
+        ?
         <div className="btn-group mt-4">
           <NextButton onClick={(e) => {
             e.preventDefault()
           }} />
         </div>
-      }
-      {errors.length === 0
-        &&
+        :
         <div className="btn-group mt-4">
           <NextButton handleOnClick={toNextPage} page={page} />
         </div>}
