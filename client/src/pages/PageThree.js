@@ -31,22 +31,23 @@ const PageThree = ({
   return (
     <>
       <h3 className="text-muted mb-4">Upload Summary</h3>
-      <label for="videoTitleSummary">File Name</label>
-      <div className="form-group mb-2">
+
+      <div className="input-group mb-4">
+        <div class="input-group-prepend">
+          <span class="input-group-text">File Name</span>
+        </div>
         <input
           type="text"
-          name="videoTitle"
-          className="form-control-plaintext"
+          name="fileName"
+          id="fileNameSummary"
+          className="form-control"
           value={fileName}
-          readOnly
           disabled
         />
       </div>
       <div className="input-group mb-4">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">
-            Video Title
-          </span>
+          <span class="input-group-text">Video Title</span>
         </div>
         <input
           type="text"
@@ -54,15 +55,12 @@ const PageThree = ({
           id="videoTitleSummary"
           className="form-control"
           value={videoTitle}
-          readOnly
           disabled
         />
       </div>
       <div className="input-group mb-4">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">
-            Video Start Date/Time
-          </span>
+          <span class="input-group-text">Video Start Date/Time</span>
         </div>
         <input
           type="text"
@@ -75,9 +73,7 @@ const PageThree = ({
       </div>
       <div className="input-group mb-4">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">
-            Video Location
-          </span>
+          <span class="input-group-text">Video Location</span>
         </div>
         <input
           type="text"
