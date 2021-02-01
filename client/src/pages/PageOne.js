@@ -6,6 +6,7 @@ const PageOne = ({
   handlePage,
   fileName,
   handleFileName,
+  handleFileType,
   handleVideoPreview,
   videoTitle,
   handleVideoTitle,
@@ -38,11 +39,13 @@ const PageOne = ({
           <input
             type="file"
             name="fileName"
+            accept="video/*"
             className="custom-file-input"
             onChange={(e) => {
               if (!e.target.files[0]) return;
+              handleVideoPreview(e.target.files[0])
               handleFileName(e.target.files[0].name);
-              handleVideoPreview(URL.createObjectURL(e.target.files[0]))
+              handleFileType(e.target.files[0].type)
             }}
           />
           <label className="custom-file-label" htmlFor="customFile">
