@@ -45,14 +45,14 @@ const PageOne = ({
               handleVideoPreview(URL.createObjectURL(e.target.files[0]))
             }}
           />
-          <label class="custom-file-label" for="customFile">
+          <label className="custom-file-label" htmlFor="customFile">
             {!fileName ? "Upload Video" : fileName}
           </label>
         </div>
       </div>
       <div className="input-group mb-4">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Video Title</span>
+        <div className="input-group-prepend">
+          <span className="input-group-text">Video Title</span>
         </div>
         <input
           type="text"
@@ -65,8 +65,8 @@ const PageOne = ({
         />
       </div>
       <div className="input-group mb-4">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Video Start Date/Time</span>
+        <div className="input-group-prepend">
+          <span className="input-group-text">Video Start Date/Time</span>
         </div>
         <input
           type="date"
@@ -79,8 +79,8 @@ const PageOne = ({
         />
       </div>
       <div className="input-group mb-4">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Video Location</span>
+        <div className="input-group-prepend">
+          <span className="input-group-text">Video Location</span>
         </div>
         <input
           type="string"
