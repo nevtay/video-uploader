@@ -10,8 +10,10 @@ const PageOne = ({
   updateVideoFile,
   videoTitle,
   updateVideoTitle,
-  videoDateTime,
-  updateVideoDateTime,
+  videoTime,
+  updateVideoTime,
+  videoDate,
+  updateVideoDate,
   videoLocation,
   updateVideoLocation,
 }) => {
@@ -61,7 +63,7 @@ const PageOne = ({
           type="text"
           name="videoTitle"
           className="form-control"
-          placeholder="Title (required)"
+          placeholder="Enter Title"
           value={videoTitle}
           onChange={(e) => updateVideoTitle(e.target.value)}
           required
@@ -69,15 +71,29 @@ const PageOne = ({
       </div>
       <div className="input-group mb-4">
         <div className="input-group-prepend">
-          <span className="input-group-text">Video Start Date/Time</span>
+          <span className="input-group-text">Video Start Date</span>
         </div>
         <input
           type="date"
-          name="videoStartDateTime"
+          name="videoStartDate"
           className="form-control"
-          placeholder="Start Date/Time (required)"
-          value={videoDateTime}
-          onChange={(e) => updateVideoDateTime(e.target.value)}
+          placeholder="Start Date (required)"
+          value={videoDate}
+          onChange={(e) => updateVideoDate(e.target.value)}
+          required
+        />
+      </div>
+      <div className="input-group mb-4">
+        <div className="input-group-prepend">
+          <span className="input-group-text">Video Start Time</span>
+        </div>
+        <input
+          type="time"
+          name="videoStartTime"
+          className="form-control"
+          placeholder="Start Time (required)"
+          value={videoTime}
+          onChange={(e) => updateVideoTime(e.target.value)}
           required
         />
       </div>
