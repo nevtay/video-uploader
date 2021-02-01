@@ -12,8 +12,9 @@ function App() {
   const [page, setPage] = useState(1);
 
   // metadata fields for page one
-  const [videoPreview, setVideoPreview] = useState(null)
   const [fileName, setFileName] = useState("");
+  const [fileType, setFileType] = useState("video/mp4")
+  const [videoFile, setVideoFile] = useState("")
   const [videoTitle, setVideoTitle] = useState("");
   const [videoDateTime, setVideoDateTime] = useState("");
   const [videoLocation, setVideoLocation] = useState("");
@@ -21,23 +22,24 @@ function App() {
   return (
     <div className="container-fluid">
       <h1 className="display-3 mb-5 text-center">Video Uploader</h1>
-      <form className="m-auto col-sm-10 col-md-7 col-lg-5">
-        <video className="embed-responsive embed-responsive-16by9" alt="Video Preview">
-          <source src={videoPreview} type="video/mp4" />
-        </video>
+      <form method="post" className="m-auto col-sm-10 col-md-7 col-lg-5">
+        <div className="embed-responsive embed-responsive-16by9 mb-3">
+          <video src={!videoFile ? "" : URL.createObjectURL(videoFile)} type={fileType} alt="Video Preview" />
+        </div>
         {page === 1 && (
           <PageOne
             page={page}
             handlePage={setPage}
             fileName={fileName}
-            handleVideoPreview={setVideoPreview}
-            handleFileName={setFileName}
+            updateFileName={setFileName}
+            updateFileType={setFileType}
+            updateVideoFile={setVideoFile}
             videoTitle={videoTitle}
-            handleVideoTitle={setVideoTitle}
+            updateVideoTitle={setVideoTitle}
             videoDateTime={videoDateTime}
-            handleVideoDateTime={setVideoDateTime}
+            updateVideoDateTime={setVideoDateTime}
             videoLocation={videoLocation}
-            handleVideoLocation={setVideoLocation}
+            updateVideoLocation={setVideoLocation}
           />
         )}
         {page === 2 && <PageTwo page={page} handlePage={setPage} />}
@@ -53,11 +55,11 @@ function App() {
         )}
         <div className="form-group text-center mt-3">
           <small className="text-muted">
-            Current Page: {page} of {MAX_PAGES}
+            Step {page} of {MAX_PAGES}
           </small>
         </div>
       </form>
-    </div>
+    </div >
   );
 }
 
