@@ -16,7 +16,8 @@ function App() {
   const [fileType, setFileType] = useState("video/mp4")
   const [videoFile, setVideoFile] = useState("")
   const [videoTitle, setVideoTitle] = useState("");
-  const [videoDateTime, setVideoDateTime] = useState("");
+  const [videoDate, setVideoDate] = useState("");
+  const [videoTime, setVideoTime] = useState("");
   const [videoLocation, setVideoLocation] = useState("");
 
   const renderVideo = useMemo(() => {
@@ -40,8 +41,10 @@ function App() {
             updateVideoFile={setVideoFile}
             videoTitle={videoTitle}
             updateVideoTitle={setVideoTitle}
-            videoDateTime={videoDateTime}
-            updateVideoDateTime={setVideoDateTime}
+            videoDate={videoDate}
+            updateVideoDate={setVideoDate}
+            videoTime={videoTime}
+            updateVideoTime={setVideoTime}
             videoLocation={videoLocation}
             updateVideoLocation={setVideoLocation}
           />
@@ -53,7 +56,8 @@ function App() {
             handlePage={setPage}
             fileName={fileName}
             videoTitle={videoTitle}
-            videoDateTime={videoDateTime}
+            videoDate={videoDate}
+            videoTime={videoTime}
             videoLocation={videoLocation}
           />
         )}
