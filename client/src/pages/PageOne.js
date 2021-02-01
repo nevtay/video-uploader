@@ -33,22 +33,24 @@ const PageOne = ({
 
   return (
     <>
-      <div className="form-group mb-4">
+      <div className="input-group mb-4">
         <div className="custom-file">
           <input
             type="file"
             name="fileName"
             className="custom-file-input"
-            placeholder="File Name"
             onChange={handleFileName}
             value={fileName}
           />
           <label class="custom-file-label" for="customFile">
-            Choose file
+            {!fileName ? "Upload Video" : fileName}
           </label>
         </div>
       </div>
-      <div className="form-group mb-4">
+      <div className="input-group mb-4">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Video Title</span>
+        </div>
         <input
           type="text"
           name="videoTitle"
@@ -59,7 +61,10 @@ const PageOne = ({
           required
         />
       </div>
-      <div className="form-group mb-4">
+      <div className="input-group mb-4">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Video Start Date/Time</span>
+        </div>
         <input
           type="date"
           name="videoStartDateTime"
@@ -70,12 +75,15 @@ const PageOne = ({
           required
         />
       </div>
-      <div className="form-group mb-4">
+      <div className="input-group mb-4">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Video Location</span>
+        </div>
         <input
           type="string"
           name="postalCode"
           className="form-control"
-          placeholder="Postal Code (optional)"
+          placeholder="e.g. 190034"
           value={videoLocation}
           onChange={(e) => handleVideoLocation(e.target.value)}
         />
