@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="container-fluid">
       <h1 className="display-3 mb-5 text-center">Video Uploader</h1>
-      <form method="post" className="m-auto col-sm-10 col-md-7 col-lg-5">
+      <form className="m-auto col-sm-10 col-md-7 col-lg-5">
         {videoFile && renderVideo}
         {page === 1 && (
           <PageOne
