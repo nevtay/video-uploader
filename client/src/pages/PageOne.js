@@ -6,6 +6,7 @@ const PageOne = ({
   handlePage,
   fileName,
   handleFileName,
+  handleVideoPreview,
   videoTitle,
   handleVideoTitle,
   videoDateTime,
@@ -41,6 +42,7 @@ const PageOne = ({
             onChange={(e) => {
               if (!e.target.files[0]) return;
               handleFileName(e.target.files[0].name);
+              handleVideoPreview(URL.createObjectURL(e.target.files[0]))
             }}
           />
           <label class="custom-file-label" for="customFile">
