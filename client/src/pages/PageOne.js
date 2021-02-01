@@ -80,7 +80,7 @@ const PageOne = ({
           onChange={(e) => handleVideoLocation(e.target.value)}
         />
       </div>
-      <div className="btn-group">
+      <div className="btn-group mt-4">
         <PrevButton handleOnClick={toPrevPage} page={page} />
         <NextButton handleOnClick={toNextPage} page={page} />
       </div>
