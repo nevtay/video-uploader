@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import PageOne from "./pages/PageOne";
 import PageTwo from "./pages/PageTwo";
 import PageThree from "./pages/PageThree";
@@ -19,13 +19,17 @@ function App() {
   const [videoDateTime, setVideoDateTime] = useState("");
   const [videoLocation, setVideoLocation] = useState("");
 
+  const renderVideo = useMemo(() => {
+    return <div className="embed-responsive embed-responsive-16by9 mb-3">
+      <video src={!videoFile ? "" : URL.createObjectURL(videoFile)} type={fileType} alt="Video Preview" preload="auto" />
+    </div>
+  }, [videoFile])
+
   return (
     <div className="container-fluid">
       <h1 className="display-3 mb-5 text-center">Video Uploader</h1>
       <form method="post" className="m-auto col-sm-10 col-md-7 col-lg-5">
-        <div className="embed-responsive embed-responsive-16by9 mb-3">
-          <video src={!videoFile ? "" : URL.createObjectURL(videoFile)} type={fileType} alt="Video Preview" />
-        </div>
+        {videoFile && renderVideo}
         {page === 1 && (
           <PageOne
             page={page}
