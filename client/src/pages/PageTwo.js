@@ -54,8 +54,8 @@ const PageTwo = ({ page, handlePage }) => {
         <span>I acknowledge the terms and conditions above</span>
       </div>
       <div className="btn-group">
-        <NextButton handleOnClick={toNextPage} page={page} />
         <PrevButton handleOnClick={toPrevPage} page={page} />
+        <NextButton handleOnClick={toNextPage} page={page} />
       </div>
     </>
   );

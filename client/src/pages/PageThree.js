@@ -24,8 +24,8 @@ const PageThree = ({ page, handlePage }) => {
   return (
     <>
       <input type="submit" value="Upload video" />
-      <NextButton handleOnClick={toNextPage} page={page} />
       <PrevButton handleOnClick={toPrevPage} page={page} />
+      <NextButton handleOnClick={toNextPage} page={page} />
     </>
   );
 };
