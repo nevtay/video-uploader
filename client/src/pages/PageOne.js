@@ -5,15 +5,15 @@ const PageOne = ({
   page,
   handlePage,
   fileName,
-  handleFileName,
-  handleFileType,
-  handleVideoPreview,
+  updateFileName,
+  updateFileType,
+  updateVideoFile,
   videoTitle,
-  handleVideoTitle,
+  updateVideoTitle,
   videoDateTime,
-  handleVideoDateTime,
+  updateVideoDateTime,
   videoLocation,
-  handleVideoLocation,
+  updateVideoLocation,
 }) => {
   // move forward one page
   const toNextPage = () => {
@@ -43,9 +43,9 @@ const PageOne = ({
             className="custom-file-input"
             onChange={(e) => {
               if (!e.target.files[0]) return;
-              handleVideoPreview(e.target.files[0])
-              handleFileName(e.target.files[0].name);
-              handleFileType(e.target.files[0].type)
+              updateVideoFile(e.target.files[0])
+              updateFileName(e.target.files[0].name);
+              updateFileType(e.target.files[0].type)
             }}
           />
           <label className="custom-file-label" htmlFor="customFile">
@@ -63,7 +63,7 @@ const PageOne = ({
           className="form-control"
           placeholder="Title (required)"
           value={videoTitle}
-          onChange={(e) => handleVideoTitle(e.target.value)}
+          onChange={(e) => updateVideoTitle(e.target.value)}
           required
         />
       </div>
@@ -77,7 +77,7 @@ const PageOne = ({
           className="form-control"
           placeholder="Start Date/Time (required)"
           value={videoDateTime}
-          onChange={(e) => handleVideoDateTime(e.target.value)}
+          onChange={(e) => updateVideoDateTime(e.target.value)}
           required
         />
       </div>
@@ -91,7 +91,7 @@ const PageOne = ({
           className="form-control"
           placeholder="e.g. 190034"
           value={videoLocation}
-          onChange={(e) => handleVideoLocation(e.target.value)}
+          onChange={(e) => updateVideoLocation(e.target.value)}
         />
       </div>
       <div className="btn-group mt-4">
