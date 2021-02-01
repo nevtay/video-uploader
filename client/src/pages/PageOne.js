@@ -81,7 +81,6 @@ const PageOne = ({
         />
       </div>
       <div className="btn-group mt-4">
-        <PrevButton handleOnClick={toPrevPage} page={page} />
         <NextButton handleOnClick={toNextPage} page={page} />
       </div>
     </>
