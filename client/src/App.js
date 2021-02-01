@@ -16,9 +16,9 @@ function App() {
   const [videoLocation, setVideoLocation] = useState("");
 
   return (
-    <div className="App">
-      <h1>Video Uploader</h1>
-      <form className="container fluid col-md-6 col-sm-12">
+    <div className="container-fluid">
+      <h1 className="display-3 mb-5 text-center">Video Uploader</h1>
+      <form className="m-auto col-sm-10 col-md-7 col-lg-5">
         {page === 1 && (
           <PageOne
             page={page}
@@ -34,7 +34,16 @@ function App() {
           />
         )}
         {page === 2 && <PageTwo page={page} handlePage={setPage} />}
-        {page === 3 && <PageThree page={page} handlePage={setPage} />}
+        {page === 3 && (
+          <PageThree
+            page={page}
+            handlePage={setPage}
+            fileName={fileName}
+            videoTitle={videoTitle}
+            videoDateTime={videoDateTime}
+            videoLocation={videoLocation}
+          />
+        )}
         <div className="form-group text-center mt-3">
           <small className="text-muted">
             Current Page: {page} of {MAX_PAGES}
