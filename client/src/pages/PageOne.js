@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import NextButton from "../components/NextButton";
 
 const PageOne = ({
@@ -33,6 +33,37 @@ const PageOne = ({
       return (page = page - 1);
     });
   };
+
+  const [errors, setErrors] = useState([])
+
+  // validate video title field
+  useEffect(() => {
+    if (!videoTitle) {
+      setErrors([...errors, "Video title required"])
+    } else {
+      setErrors([...errors.filter(err => err !== "Video title required")])
+    }
+  }, [videoTitle])
+
+  // validate video date field
+  useEffect(() => {
+    if (!videoDate) {
+      setErrors([...errors, "Video date required"])
+    } else {
+      setErrors([...errors.filter(err => err !== "Video date required")])
+    }
+  }, [videoDate])
+
+  // validate video time field
+  useEffect(() => {
+    if (!videoTime) {
+      setErrors([...errors, "Video time required"])
+    } else {
+      setErrors([...errors.filter(err => err !== "Video time required")])
+    }
+  }, [videoTime])
+
+  const showErrors = () => errors.map(err => <p>err</p>)
 
   return (
     <>
@@ -110,9 +141,19 @@ const PageOne = ({
           onChange={(e) => updateVideoLocation(e.target.value)}
         />
       </div>
-      <div className="btn-group mt-4">
-        <NextButton handleOnClick={toNextPage} page={page} />
-      </div>
+      {errors.length > 0
+        &&
+        <div className="btn-group mt-4">
+          <NextButton onClick={(e) => {
+            e.preventDefault()
+          }} />
+        </div>
+      }
+      {errors.length === 0
+        &&
+        <div className="btn-group mt-4">
+          <NextButton handleOnClick={toNextPage} page={page} />
+        </div>}
     </>
   );
 };
