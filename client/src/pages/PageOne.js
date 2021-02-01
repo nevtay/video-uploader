@@ -39,8 +39,7 @@ const PageOne = ({
             type="file"
             name="fileName"
             className="custom-file-input"
-            onChange={handleFileName}
-            value={fileName}
+            onChange={(e) => handleFileName(e.target.files[0].name)}
           />
           <label class="custom-file-label" for="customFile">
             {!fileName ? "Upload Video" : fileName}
