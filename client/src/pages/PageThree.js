@@ -7,7 +7,8 @@ const PageThree = ({
   fileName,
   handlePage,
   videoTitle,
-  videoDateTime,
+  videoDate,
+  videoTime,
   videoLocation,
 }) => {
   // move forward one page
@@ -60,14 +61,27 @@ const PageThree = ({
       </div>
       <div className="input-group mb-4">
         <div class="input-group-prepend">
-          <span class="input-group-text">Video Start Date/Time</span>
+          <span class="input-group-text">Video Start Date</span>
         </div>
         <input
           type="date"
-          name="videoDateTime"
-          id="videoDateTimeSummary"
+          name="videoDate"
+          id="videoDateSummary"
           className="form-control"
-          value={videoDateTime}
+          value={videoDate}
+          disabled
+        />
+      </div>
+      <div className="input-group mb-4">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Video Start Time</span>
+        </div>
+        <input
+          type="time"
+          name="videoDate"
+          id="videoTimeSummary"
+          className="form-control"
+          value={videoTime}
           disabled
         />
       </div>
