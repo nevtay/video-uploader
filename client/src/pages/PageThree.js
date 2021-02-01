@@ -63,7 +63,7 @@ const PageThree = ({
           <span class="input-group-text">Video Start Date/Time</span>
         </div>
         <input
-          type="text"
+          type="date"
           name="videoDateTime"
           id="videoDateTimeSummary"
           className="form-control"
