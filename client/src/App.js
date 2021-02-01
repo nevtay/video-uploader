@@ -17,9 +17,6 @@ function App() {
 
   return (
     <div className="App">
-      <p>
-        Current Page: {page} of {MAX_PAGES}
-      </p>
       <h1>Video Uploader</h1>
       <form className="container fluid col-md-6 col-sm-12">
         {page === 1 && (
@@ -38,6 +35,11 @@ function App() {
         )}
         {page === 2 && <PageTwo page={page} handlePage={setPage} />}
         {page === 3 && <PageThree page={page} handlePage={setPage} />}
+        <div className="form-group text-center mt-3">
+          <small className="text-muted">
+            Current Page: {page} of {MAX_PAGES}
+          </small>
+        </div>
       </form>
     </div>
   );
