@@ -55,7 +55,7 @@ const PageTwo = ({ page, handlePage }) => {
         <input
           type="checkbox"
           className="custom-checkbox mr-2"
-          checked={isChecked}
+          defaultChecked={isChecked}
           onClick={() => setIsChecked(!isChecked)}
           required
         />
