@@ -35,6 +35,7 @@ const PageOne = ({
     } else {
       setErrors([...errors.filter((err) => err !== "Video title required")]);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videoTitle]);
 
   // validate video date field
@@ -44,6 +45,7 @@ const PageOne = ({
     } else {
       setErrors([...errors.filter((err) => err !== "Video date required")]);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videoDate]);
 
   // validate video time field
@@ -53,6 +55,7 @@ const PageOne = ({
     } else {
       setErrors([...errors.filter((err) => err !== "Video time required")]);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videoTime]);
 
   return (
@@ -63,6 +66,7 @@ const PageOne = ({
       <div className="input-group mb-4">
         <div className="custom-file">
           <input
+            style={{ cursor: "pointer" }}
             type="file"
             name="fileName"
             accept="video/*"
@@ -79,6 +83,20 @@ const PageOne = ({
             {!fileName ? "Upload Video" : fileName}
           </label>
         </div>
+        {fileName && (
+          <div className="input-group-prepend">
+            <span
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                updateFileName("");
+                updateVideoFile("");
+              }}
+              className="input-group-text"
+            >
+              Remove File
+            </span>
+          </div>
+        )}
       </div>
       <div className="input-group mb-4">
         <div className="input-group-prepend">
