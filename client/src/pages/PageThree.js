@@ -31,7 +31,9 @@ const PageThree = ({
   };
   return (
     <>
-      <p className="text-muted text-center mb-4">Upload Summary</p>
+      <h5 className="text-muted text-center mb-4">
+        <strong>Upload Summary</strong>
+      </h5>
       <div className="input-group mb-4">
         <div class="input-group-prepend">
           <span class="input-group-text">File Name</span>
@@ -98,7 +100,19 @@ const PageThree = ({
           disabled
         />
       </div>
-      <div className="btn-group mt-1">
+      <div class="progress" style={{ height: "35px" }}>
+        <div
+          class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+          role="progressbar"
+          style={{ width: "25%" }}
+          aria-valuenow="25"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          25%
+        </div>
+      </div>
+      <div className="btn-group mt-3">
         <PrevButton handleOnClick={toPrevPage} page={page} />
         <button className="btn btn-outline-primary" value="Upload video">
           Upload Video
