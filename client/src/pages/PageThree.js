@@ -11,16 +11,6 @@ const PageThree = ({
   videoLocation,
   handleVideoUpload,
 }) => {
-  // move forward one page
-  const toNextPage = (e) => {
-    // e.preventDefault();
-    if (page === 3) {
-      return;
-    } else {
-      handlePage((page) => page + 1);
-    }
-  };
-
   // move back one page
   const toPrevPage = (e) => {
     // e.preventDefault();
