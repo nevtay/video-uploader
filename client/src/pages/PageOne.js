@@ -65,6 +65,9 @@ const PageOne = ({
 
   return (
     <>
+      <p className="text-muted text-center">
+        Fields marked with <sup className="text-danger">*</sup> cannot be empty.
+      </p>
       <div className="input-group mb-4">
         <div className="custom-file">
           <input
@@ -146,9 +149,6 @@ const PageOne = ({
           onChange={(e) => updateVideoLocation(e.target.value)}
         />
       </div>
-      <p className="fw-lighter">
-        Fields marked with <sup className="text-danger">*</sup> cannot be empty.
-      </p>
       {errors.length > 0 ? (
         <div className="btn-group mt-3">
           <NextButton
