@@ -1,5 +1,4 @@
 import React from "react";
-import NextButton from "../components/NextButton";
 import PrevButton from "../components/PrevButton";
 
 const PageThree = ({
