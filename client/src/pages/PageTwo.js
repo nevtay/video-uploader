@@ -51,7 +51,7 @@ const PageTwo = ({ page, handlePage }) => {
       </div>
       <div className="form-group">
         <input type="checkbox" className="custom-checkbox mr-2" />
-        <span>I acknowledge the terms and conditions above</span>
+        <span>I accept the terms and conditions.</span>
       </div>
       <div className="btn-group mt-4">
         <PrevButton handleOnClick={toPrevPage} page={page} />
