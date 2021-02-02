@@ -1,22 +1,11 @@
 import React from "react";
 
-const PrevButton = ({ handleOnClick, page }) => {
+const PrevButton = ({ handleOnClick }) => {
   return (
     <>
-      {page === 1 && (
-        <button
-          className="btn btn-outline-secondary"
-          disabled
-          onClick={handleOnClick}
-        >
-          Previous
-        </button>
-      )}
-      {page !== 1 && (
-        <button className="btn btn-outline-secondary" onClick={handleOnClick}>
-          Previous
-        </button>
-      )}
+      <button className="btn btn-outline-secondary" onClick={handleOnClick}>
+        Previous
+      </button>
     </>
   );
 };
