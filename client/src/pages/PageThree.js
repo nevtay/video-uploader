@@ -33,7 +33,7 @@ const PageThree = ({
       time: videoTime,
       location: videoLocation,
     };
-    console.log(data);
+    setDisplayProgressBar(true);
   };
   return (
     <>
@@ -106,18 +106,20 @@ const PageThree = ({
           disabled
         />
       </div>
-      <div className="progress" style={{ height: "35px" }}>
-        <div
-          className="progress-bar progress-bar-striped progress-bar-animated bg-success"
-          role="progressbar"
-          style={{ width: "25%" }}
-          aria-valuenow="25"
-          aria-valuemin="0"
-          aria-valuemax="100"
-        >
-          25%
+      {displayProgressBar && (
+        <div className="progress" style={{ height: "35px" }}>
+          <div
+            className="progress-bar progress-bar-striped progress-bar-animated bg-success"
+            role="progressbar"
+            style={{ width: `${uploadPercentage}%` }}
+            aria-valuenow={uploadPercentage.toString()}
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            {uploadPercentage}%
+          </div>
         </div>
-      </div>
+      )}
       <div className="btn-group mt-3">
         <PrevButton handleOnClick={toPrevPage} page={page} />
         <button
