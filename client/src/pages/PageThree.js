@@ -14,6 +14,7 @@ const PageThree = ({
   videoLocation,
 }) => {
   const [uploadPercentage, setUploadPercentage] = useState(0);
+  const [uploadedMessage, setUploadedMessage] = useState("");
   const [displayProgressBar, setDisplayProgressBar] = useState(false);
   const [displayCancelVideo, setDisplayCancelVideo] = useState(false);
 

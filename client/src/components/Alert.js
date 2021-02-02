@@ -1,19 +1,30 @@
 import React from "react";
 
-const Alert = () => {
-  return (
+const Alert = ({ message }) =>
+  message === "Upload succeeded!" ? (
     <div
       style={{
         position: "fixed",
         top: "0",
         left: "0",
         width: "100vw",
-        background: "gray",
       }}
+      className="alert alert-success"
     >
-      Success
+      {message}
+    </div>
+  ) : (
+    <div
+      style={{
+        position: "fixed",
+        top: "0",
+        left: "0",
+        width: "100vw",
+      }}
+      className="alert alert-danger"
+    >
+      {message}
     </div>
   );
-};
 
 export default Alert;
