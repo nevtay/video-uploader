@@ -5,9 +5,11 @@ const PageOne = ({
   page,
   handlePage,
   fileName,
+  fileInputRef,
   updateFileName,
   updateFileType,
   updateVideoFile,
+  videoFile,
   videoTitle,
   updateVideoTitle,
   videoTime,
@@ -27,6 +29,16 @@ const PageOne = ({
   };
 
   const [errors, setErrors] = useState([]);
+
+  // validate video title field
+  useEffect(() => {
+    if (!videoFile) {
+      setErrors([...errors, "Add a file"]);
+    } else {
+      setErrors([...errors.filter((err) => err !== "Add a file")]);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [videoFile]);
 
   // validate video title field
   useEffect(() => {
@@ -67,12 +79,17 @@ const PageOne = ({
         <div className="custom-file">
           <input
             style={{ cursor: "pointer" }}
+            ref={fileInputRef}
             type="file"
             name="fileName"
             accept="video/*"
             className="custom-file-input"
             onChange={(e) => {
-              if (!e.target.files[0]) return;
+              if (!e.target.files[0]) {
+                updateFileName(null);
+                updateVideoFile(null);
+                return;
+              }
               updateVideoFile(e.target.files[0]);
               updateFileName(e.target.files[0].name);
               updateFileType(e.target.files[0].type);
@@ -88,6 +105,7 @@ const PageOne = ({
             <span
               style={{ cursor: "pointer" }}
               onClick={() => {
+                fileInputRef.current.value = "";
                 updateFileName("");
                 updateVideoFile("");
               }}
