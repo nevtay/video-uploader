@@ -20,6 +20,11 @@ function App() {
   const [videoTime, setVideoTime] = useState("");
   const [videoLocation, setVideoLocation] = useState("");
 
+  // upload function
+  const uploadVideo = () =>
+    console.log(videoFile, videoTitle, videoDate, videoTime, videoLocation);
+
+  // render video preview
   const renderVideo = useMemo(() => {
     return (
       <div className="embed-responsive embed-responsive-16by9 mb-2">
@@ -31,7 +36,7 @@ function App() {
         />
       </div>
     );
-  }, [videoFile]);
+  }, [videoFile, fileType]);
 
   return (
     <div className="container-fluid">
@@ -66,6 +71,7 @@ function App() {
             videoDate={videoDate}
             videoTime={videoTime}
             videoLocation={videoLocation}
+            handleVideoUpload={uploadVideo}
           />
         )}
         <div className="form-group text-center mt-3">
