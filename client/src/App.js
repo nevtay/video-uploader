@@ -44,9 +44,10 @@ function App() {
             page={page}
             handlePage={setPage}
             fileName={fileName}
+            videoFile={videoFile}
+            updateVideoFile={setVideoFile}
             updateFileName={setFileName}
             updateFileType={setFileType}
-            updateVideoFile={setVideoFile}
             videoTitle={videoTitle}
             updateVideoTitle={setVideoTitle}
             videoDate={videoDate}
