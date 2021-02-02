@@ -3,6 +3,7 @@ import axios from "axios";
 import PrevButton from "../components/PrevButton";
 import HomeButton from "../components/HomeButton";
 import UploadButton from "../components/UploadButton";
+import CancelUploadButton from "../components/CancelUploadButton";
 import Alert from "../components/Alert";
 
 const PageThree = ({
@@ -36,6 +37,11 @@ const PageThree = ({
       }, 3500);
     }
   }, [uploadedMessage]);
+
+  const cancelUpload = () => {
+    setDisplayCancelVideo(false);
+    setDisplayProgressBar(false);
+  };
 
   // upload function
   const uploadVideo = async (e) => {
@@ -167,15 +173,7 @@ const PageThree = ({
           <UploadButton uploadFunction={uploadVideo} />
         )}
         {!uploadedMessage && displayCancelVideo && (
-          <button
-            className="btn btn-outline-danger"
-            onClick={() => {
-              setDisplayCancelVideo(false);
-              setDisplayProgressBar(false);
-            }}
-          >
-            Cancel Upload
-          </button>
+          <CancelUploadButton cancelUploadFunction={cancelUpload} />
         )}
       </div>
     </>
