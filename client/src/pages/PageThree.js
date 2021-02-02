@@ -10,6 +10,7 @@ const PageThree = ({
   videoDate,
   videoTime,
   videoLocation,
+  handleVideoUpload,
 }) => {
   // move forward one page
   const toNextPage = (e) => {
@@ -35,8 +36,8 @@ const PageThree = ({
         <strong>Upload Summary</strong>
       </h5>
       <div className="input-group mb-4">
-        <div class="input-group-prepend">
-          <span class="input-group-text">File Name</span>
+        <div className="input-group-prepend">
+          <span className="input-group-text">File Name</span>
         </div>
         <input
           type="text"
@@ -48,8 +49,8 @@ const PageThree = ({
         />
       </div>
       <div className="input-group mb-4">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Video Title</span>
+        <div className="input-group-prepend">
+          <span className="input-group-text">Video Title</span>
         </div>
         <input
           type="text"
@@ -61,8 +62,8 @@ const PageThree = ({
         />
       </div>
       <div className="input-group mb-4">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Video Start Date</span>
+        <div className="input-group-prepend">
+          <span className="input-group-text">Video Start Date</span>
         </div>
         <input
           type="date"
@@ -74,8 +75,8 @@ const PageThree = ({
         />
       </div>
       <div className="input-group mb-4">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Video Start Time</span>
+        <div className="input-group-prepend">
+          <span className="input-group-text">Video Start Time</span>
         </div>
         <input
           type="time"
@@ -87,8 +88,8 @@ const PageThree = ({
         />
       </div>
       <div className="input-group mb-4">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Video Location</span>
+        <div className="input-group-prepend">
+          <span className="input-group-text">Video Location</span>
         </div>
         <input
           type="text"
@@ -100,9 +101,9 @@ const PageThree = ({
           disabled
         />
       </div>
-      <div class="progress" style={{ height: "35px" }}>
+      <div className="progress" style={{ height: "35px" }}>
         <div
-          class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+          className="progress-bar progress-bar-striped progress-bar-animated bg-success"
           role="progressbar"
           style={{ width: "25%" }}
           aria-valuenow="25"
@@ -114,7 +115,14 @@ const PageThree = ({
       </div>
       <div className="btn-group mt-3">
         <PrevButton handleOnClick={toPrevPage} page={page} />
-        <button className="btn btn-outline-primary" value="Upload video">
+        <button
+          className="btn btn-outline-primary"
+          onClick={(e) => {
+            e.preventDefault();
+            handleVideoUpload();
+          }}
+          value="Upload video"
+        >
           Upload Video
         </button>
       </div>
