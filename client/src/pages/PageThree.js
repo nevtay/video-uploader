@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import PrevButton from "../components/PrevButton";
 import Alert from "../components/Alert";
@@ -27,8 +27,17 @@ const PageThree = ({
     });
   };
 
+  useEffect(() => {
+    if (uploadedMessage) {
+      setTimeout(() => {
+        setUploadedMessage("");
+      }, 3500);
+    }
+  }, [uploadedMessage]);
+
   // upload function
-  const uploadVideo = async () => {
+  const uploadVideo = async (e) => {
+    e.preventDefault();
     const formData = new FormData();
     // const data = {
     //   videoFile: videoFile,
@@ -38,19 +47,21 @@ const PageThree = ({
     //   location: videoLocation,
     // };
     formData.append("file", videoFile);
-    // formData.append("title", videoTitle);
-    // formData.append("date", videoDate);
-    // formData.append("time", videoTime);
-    // formData.append("location", videoLocation);
+    formData.append("title", videoTitle);
+    formData.append("date", videoDate);
+    formData.append("time", videoTime);
+    formData.append("location", videoLocation);
     setDisplayCancelVideo(true);
     setDisplayProgressBar(true);
+    console.log(formData);
     try {
       const res = await axios.post("/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
-      const { fileName, filePath } = res.data;
+      setUploadedMessage("Upload succeeded!");
+      setDisplayCancelVideo(false);
     } catch (err) {
       if (err.response.status === 500) {
         console.log("Something went wrong with the upload");
@@ -61,7 +72,7 @@ const PageThree = ({
   };
   return (
     <>
-      <Alert />
+      {uploadedMessage && <Alert message={uploadedMessage} />}
       <h5 className="text-muted text-center mb-4">
         <strong>Upload Summary</strong>
       </h5>
@@ -151,15 +162,14 @@ const PageThree = ({
           <button
             className="btn btn-outline-primary"
             onClick={(e) => {
-              e.preventDefault();
-              uploadVideo();
+              uploadVideo(e);
             }}
             value="Upload video"
           >
             Upload Video
           </button>
         )}
-        {displayCancelVideo && (
+        {!uploadedMessage && displayCancelVideo && (
           <button
             className="btn btn-outline-danger"
             onClick={() => {
