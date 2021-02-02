@@ -13,7 +13,7 @@ const PageThree = ({
   videoLocation,
 }) => {
   const [uploadPercentage, setUploadPercentage] = useState(0);
-  const [displayProgress, setDisplayProgress] = useState(false);
+  const [displayProgressBar, setDisplayProgressBar] = useState(false);
 
   // move back one page
   const toPrevPage = (e) => {
