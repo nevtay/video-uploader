@@ -5,11 +5,11 @@ const PageThree = ({
   page,
   fileName,
   handlePage,
+  videoFile,
   videoTitle,
   videoDate,
   videoTime,
   videoLocation,
-  handleVideoUpload,
 }) => {
   // move back one page
   const toPrevPage = (e) => {
@@ -18,6 +18,18 @@ const PageThree = ({
     handlePage((page) => {
       return (page = page - 1);
     });
+  };
+
+  // upload function
+  const uploadVideo = () => {
+    const data = {
+      videoFile: videoFile,
+      title: videoTitle,
+      date: videoDate,
+      time: videoTime,
+      location: videoLocation,
+    };
+    console.log(data);
   };
   return (
     <>
@@ -108,7 +120,7 @@ const PageThree = ({
           className="btn btn-outline-primary"
           onClick={(e) => {
             e.preventDefault();
-            handleVideoUpload();
+            uploadVideo();
           }}
           value="Upload video"
         >
