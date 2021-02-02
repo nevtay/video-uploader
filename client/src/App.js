@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import PageOne from "./pages/PageOne";
 import PageTwo from "./pages/PageTwo";
 import PageThree from "./pages/PageThree";
@@ -19,6 +19,9 @@ function App() {
   const [videoDate, setVideoDate] = useState("");
   const [videoTime, setVideoTime] = useState("");
   const [videoLocation, setVideoLocation] = useState("");
+
+  // ref for input[type='file']
+  const fileInputRef = useRef();
 
   // render video preview
   const renderVideo = useMemo(() => {
@@ -44,9 +47,11 @@ function App() {
             page={page}
             handlePage={setPage}
             fileName={fileName}
+            fileInputRef={fileInputRef}
             videoFile={videoFile}
             updateVideoFile={setVideoFile}
             updateFileName={setFileName}
+            videoFile={videoFile}
             updateFileType={setFileType}
             videoTitle={videoTitle}
             updateVideoTitle={setVideoTitle}
