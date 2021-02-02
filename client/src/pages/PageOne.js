@@ -26,14 +26,6 @@ const PageOne = ({
     }
   };
 
-  // move back one page
-  const toPrevPage = () => {
-    if (page === 1) return;
-    handlePage((page) => {
-      return (page = page - 1);
-    });
-  };
-
   const [errors, setErrors] = useState([]);
 
   // validate video title field
@@ -65,7 +57,7 @@ const PageOne = ({
 
   return (
     <>
-      <p className="text-muted text-center">
+      <p className="text-muted mb-4">
         Fields marked with <sup className="text-danger">*</sup> cannot be empty.
       </p>
       <div className="input-group mb-4">
