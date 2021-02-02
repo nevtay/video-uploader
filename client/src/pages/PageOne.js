@@ -34,36 +34,34 @@ const PageOne = ({
     });
   };
 
-  const [errors, setErrors] = useState([])
+  const [errors, setErrors] = useState([]);
 
   // validate video title field
   useEffect(() => {
     if (!videoTitle) {
-      setErrors([...errors, "Video title required"])
+      setErrors([...errors, "Video title required"]);
     } else {
-      setErrors([...errors.filter(err => err !== "Video title required")])
+      setErrors([...errors.filter((err) => err !== "Video title required")]);
     }
-  }, [videoTitle])
+  }, [videoTitle]);
 
   // validate video date field
   useEffect(() => {
     if (!videoDate) {
-      setErrors([...errors, "Video date required"])
+      setErrors([...errors, "Video date required"]);
     } else {
-      setErrors([...errors.filter(err => err !== "Video date required")])
+      setErrors([...errors.filter((err) => err !== "Video date required")]);
     }
-  }, [videoDate])
+  }, [videoDate]);
 
   // validate video time field
   useEffect(() => {
     if (!videoTime) {
-      setErrors([...errors, "Video time required"])
+      setErrors([...errors, "Video time required"]);
     } else {
-      setErrors([...errors.filter(err => err !== "Video time required")])
+      setErrors([...errors.filter((err) => err !== "Video time required")]);
     }
-  }, [videoTime])
-
-  const showErrors = () => errors.map(err => <p>err</p>)
+  }, [videoTime]);
 
   return (
     <>
@@ -76,9 +74,9 @@ const PageOne = ({
             className="custom-file-input"
             onChange={(e) => {
               if (!e.target.files[0]) return;
-              updateVideoFile(e.target.files[0])
+              updateVideoFile(e.target.files[0]);
               updateFileName(e.target.files[0].name);
-              updateFileType(e.target.files[0].type)
+              updateFileType(e.target.files[0].type);
             }}
           />
           <label className="custom-file-label" htmlFor="customFile">
@@ -141,17 +139,19 @@ const PageOne = ({
           onChange={(e) => updateVideoLocation(e.target.value)}
         />
       </div>
-      {errors.length > 0
-        ?
+      {errors.length > 0 ? (
         <div className="btn-group mt-4">
-          <NextButton onClick={(e) => {
-            e.preventDefault()
-          }} />
+          <NextButton
+            onClick={(e) => {
+              e.preventDefault();
+            }}
+          />
         </div>
-        :
+      ) : (
         <div className="btn-group mt-4">
           <NextButton handleOnClick={toNextPage} page={page} />
-        </div>}
+        </div>
+      )}
     </>
   );
 };
