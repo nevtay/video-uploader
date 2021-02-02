@@ -21,8 +21,16 @@ function App() {
   const [videoLocation, setVideoLocation] = useState("");
 
   // upload function
-  const uploadVideo = () =>
-    console.log(videoFile, videoTitle, videoDate, videoTime, videoLocation);
+  const uploadVideo = () => {
+    const data = {
+      videoFile: videoFile,
+      title: videoTitle,
+      date: videoDate,
+      time: videoTime,
+      location: videoLocation,
+    };
+    console.log(data);
+  };
 
   // render video preview
   const renderVideo = useMemo(() => {
