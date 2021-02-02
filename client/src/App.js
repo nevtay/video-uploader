@@ -13,7 +13,7 @@ function App() {
 
   // metadata fields for page one
   const [fileName, setFileName] = useState("");
-  const [fileType, setFileType] = useState("video/mp4");
+  const [fileType, setFileType] = useState("");
   const [videoFile, setVideoFile] = useState("");
   const [videoTitle, setVideoTitle] = useState("");
   const [videoDate, setVideoDate] = useState("");
