@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import NextButton from "../components/NextButton";
 import PrevButton from "../components/PrevButton";
 
@@ -21,10 +21,12 @@ const PageTwo = ({ page, handlePage }) => {
       return (page = page - 1);
     });
   };
+
+  const [isChecked, setIsChecked] = useState(false);
   return (
     <>
       <div className="form-group">
-        <h2>TERMS AND CONDITIONS</h2>
+        <h3 className="mb-3">TERMS AND CONDITIONS</h3>
         <strong>Application of these terms 1. </strong>
         <p>
           These terms and conditions shall apply in respect of all goods and
@@ -50,12 +52,22 @@ const PageTwo = ({ page, handlePage }) => {
         </p>
       </div>
       <div className="form-group">
-        <input type="checkbox" className="custom-checkbox mr-2" />
-        <span>I accept the terms and conditions.</span>
+        <input
+          type="checkbox"
+          className="custom-checkbox mr-2"
+          checked={isChecked}
+          onClick={() => setIsChecked(!isChecked)}
+          required
+        />
+        <span>
+          I accept the terms and conditions.{" "}
+          <sup className="text-danger">*</sup>
+        </span>
       </div>
       <div className="btn-group mt-4">
         <PrevButton handleOnClick={toPrevPage} page={page} />
-        <NextButton handleOnClick={toNextPage} page={page} />
+        {isChecked && <NextButton handleOnClick={toNextPage} page={page} />}
+        {!isChecked && <NextButton onClick={(e) => e.preventDefault()} />}
       </div>
     </>
   );
