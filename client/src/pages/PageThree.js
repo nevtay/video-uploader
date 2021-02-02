@@ -62,7 +62,7 @@ const PageThree = ({
     setDisplayCancelVideo(true);
     setDisplayProgressBar(true);
     try {
-      const res = await axios.post("/upload", formData, {
+      await axios.post("/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
