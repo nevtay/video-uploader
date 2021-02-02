@@ -59,6 +59,13 @@ const PageThree = ({
         headers: {
           "Content-Type": "multipart/form-data",
         },
+        onUploadProgress: (progressEvent) => {
+          setUploadPercentage(
+            parseInt(
+              Math.round(progressEvent.loaded * 100) / progressEvent.total
+            )
+          );
+        },
       });
       setUploadedMessage("Upload succeeded!");
       setDisplayCancelVideo(false);
@@ -68,6 +75,7 @@ const PageThree = ({
       } else {
         console.log(err.response.data.msg);
       }
+      setUploadedMessage("Upload failed!");
     }
   };
   return (
@@ -158,7 +166,7 @@ const PageThree = ({
       )}
       <div className="btn-group mt-3">
         <PrevButton handleOnClick={toPrevPage} page={page} />
-        {!displayCancelVideo && (
+        {!displayCancelVideo && uploadPercentage !== 100 && (
           <button
             className="btn btn-outline-primary"
             onClick={(e) => {
