@@ -20,6 +20,7 @@ const PageThree = ({
   const [uploadedStatusMessage, setUploadedStatusMessage] = useState("");
   const [displayProgressBar, setDisplayProgressBar] = useState(false);
   const [displayCancelVideo, setDisplayCancelVideo] = useState(false);
+  const [uploadFailed, setUploadFailed] = useState(false);
 
   // move back one page
   const toPrevPage = (e) => {
@@ -88,6 +89,7 @@ const PageThree = ({
         console.log(err.response.data.msg);
         setUploadedStatusMessage("Upload failed!");
       }
+      setUploadFailed(true);
     }
   };
   return (
@@ -165,7 +167,9 @@ const PageThree = ({
       {displayProgressBar && (
         <div className="progress" style={{ height: "35px" }}>
           <div
-            className="progress-bar progress-bar-striped progress-bar-animated bg-success"
+            className={`progress-bar progress-bar-striped progress-bar-animated ${
+              !uploadFailed ? `bg-success` : `bg-danger`
+            }`}
             role="progressbar"
             style={{ width: `${uploadPercentage}%` }}
             aria-valuenow={uploadPercentage.toString()}
@@ -190,7 +194,7 @@ const PageThree = ({
           <UploadButton uploadFunction={uploadVideo} />
         )}
 
-        {/* Show CancelUploadButton if upload is in progress and there are no upload status messages */}
+        {/* Show CancelUploadButton if upload is in progress and there are no upload */}
         {!uploadedStatusMessage &&
           uploadPercentage > 0 &&
           uploadPercentage < 100 && (
