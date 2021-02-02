@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import PrevButton from "../components/PrevButton";
+import HomeButton from "../components/HomeButton";
+import UploadButton from "../components/UploadButton";
 import Alert from "../components/Alert";
 
 const PageThree = ({
@@ -157,17 +159,12 @@ const PageThree = ({
         </div>
       )}
       <div className="btn-group mt-3">
-        <PrevButton handleOnClick={toPrevPage} page={page} />
+        {!uploadPercentage === 100 && (
+          <PrevButton handleOnClick={toPrevPage} page={page} />
+        )}
+        {uploadPercentage === 100 && <HomeButton />}
         {!displayCancelVideo && uploadPercentage !== 100 && (
-          <button
-            className="btn btn-outline-primary"
-            onClick={(e) => {
-              uploadVideo(e);
-            }}
-            value="Upload video"
-          >
-            Upload Video
-          </button>
+          <UploadButton uploadFunction={uploadVideo} />
         )}
         {!uploadedMessage && displayCancelVideo && (
           <button
