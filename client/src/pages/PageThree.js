@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import PrevButton from "../components/PrevButton";
+import Alert from "../components/Alert";
 
 const PageThree = ({
   page,
@@ -26,19 +27,40 @@ const PageThree = ({
   };
 
   // upload function
-  const uploadVideo = () => {
-    const data = {
-      videoFile: videoFile,
-      title: videoTitle,
-      date: videoDate,
-      time: videoTime,
-      location: videoLocation,
-    };
+  const uploadVideo = async () => {
+    const formData = new FormData();
+    // const data = {
+    //   videoFile: videoFile,
+    //   title: videoTitle,
+    //   date: videoDate,
+    //   time: videoTime,
+    //   location: videoLocation,
+    // };
+    formData.append("file", videoFile);
+    // formData.append("title", videoTitle);
+    // formData.append("date", videoDate);
+    // formData.append("time", videoTime);
+    // formData.append("location", videoLocation);
     setDisplayCancelVideo(true);
     setDisplayProgressBar(true);
+    try {
+      const res = await axios.post("/upload", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      const { fileName, filePath } = res.data;
+    } catch (err) {
+      if (err.response.status === 500) {
+        console.log("Something went wrong with the upload");
+      } else {
+        console.log(err.response.data.msg);
+      }
+    }
   };
   return (
     <>
+      <Alert />
       <h5 className="text-muted text-center mb-4">
         <strong>Upload Summary</strong>
       </h5>
