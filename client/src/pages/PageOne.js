@@ -78,6 +78,7 @@ const PageOne = ({
               updateFileName(e.target.files[0].name);
               updateFileType(e.target.files[0].type);
             }}
+            required
           />
           <label className="custom-file-label" htmlFor="customFile">
             {!fileName ? "Upload Video" : fileName}
@@ -86,7 +87,9 @@ const PageOne = ({
       </div>
       <div className="input-group mb-4">
         <div className="input-group-prepend">
-          <span className="input-group-text">Video Title</span>
+          <span className="input-group-text">
+            Video Title <sup className="text-danger">*</sup>
+          </span>
         </div>
         <input
           type="text"
@@ -100,7 +103,9 @@ const PageOne = ({
       </div>
       <div className="input-group mb-4">
         <div className="input-group-prepend">
-          <span className="input-group-text">Video Start Date</span>
+          <span className="input-group-text">
+            Video Start Date <sup className="text-danger">*</sup>
+          </span>
         </div>
         <input
           type="date"
@@ -114,7 +119,9 @@ const PageOne = ({
       </div>
       <div className="input-group mb-4">
         <div className="input-group-prepend">
-          <span className="input-group-text">Video Start Time</span>
+          <span className="input-group-text">
+            Video Start Time <sup className="text-danger">*</sup>
+          </span>
         </div>
         <input
           type="time"
@@ -126,7 +133,7 @@ const PageOne = ({
           required
         />
       </div>
-      <div className="input-group mb-4">
+      <div className="input-group mb-3">
         <div className="input-group-prepend">
           <span className="input-group-text">Video Location</span>
         </div>
@@ -139,8 +146,11 @@ const PageOne = ({
           onChange={(e) => updateVideoLocation(e.target.value)}
         />
       </div>
+      <p className="fw-lighter">
+        Fields marked with <sup className="text-danger">*</sup> cannot be empty.
+      </p>
       {errors.length > 0 ? (
-        <div className="btn-group mt-4">
+        <div className="btn-group mt-3">
           <NextButton
             onClick={(e) => {
               e.preventDefault();

@@ -13,22 +13,29 @@ function App() {
 
   // metadata fields for page one
   const [fileName, setFileName] = useState("");
-  const [fileType, setFileType] = useState("video/mp4")
-  const [videoFile, setVideoFile] = useState("")
+  const [fileType, setFileType] = useState("video/mp4");
+  const [videoFile, setVideoFile] = useState("");
   const [videoTitle, setVideoTitle] = useState("");
   const [videoDate, setVideoDate] = useState("");
   const [videoTime, setVideoTime] = useState("");
   const [videoLocation, setVideoLocation] = useState("");
 
   const renderVideo = useMemo(() => {
-    return <div className="embed-responsive embed-responsive-16by9 mb-3">
-      <video src={!videoFile ? "" : URL.createObjectURL(videoFile)} type={fileType} alt="Video Preview" preload="auto" />
-    </div>
-  }, [videoFile])
+    return (
+      <div className="embed-responsive embed-responsive-16by9 mb-3">
+        <video
+          src={!videoFile ? "" : URL.createObjectURL(videoFile)}
+          type={fileType}
+          alt="Video Preview"
+          preload="auto"
+        />
+      </div>
+    );
+  }, [videoFile]);
 
   return (
     <div className="container-fluid">
-      <h1 className="display-3 mb-5 text-center">Video Uploader</h1>
+      <h1 className="display-3 mb-5 mt-5 text-center">Video Uploader</h1>
       <form className="m-auto col-sm-10 col-md-7 col-lg-5">
         {videoFile && renderVideo}
         {page === 1 && (
@@ -67,7 +74,7 @@ function App() {
           </small>
         </div>
       </form>
-    </div >
+    </div>
   );
 }
 
