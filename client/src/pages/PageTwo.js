@@ -66,7 +66,7 @@ const PageTwo = ({ page, handlePage }) => {
       </div>
       <div className="btn-group mt-4">
         <PrevButton handleOnClick={toPrevPage} page={page} />
-        {isChecked && <NextButton handleOnClick={toNextPage} page={page} />}
+        {isChecked && <NextButton handleOnClick={toNextPage} />}
         {!isChecked && <NextButton onClick={(e) => e.preventDefault()} />}
       </div>
     </>
