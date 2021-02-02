@@ -31,8 +31,7 @@ const PageThree = ({
   };
   return (
     <>
-      <h3 className="text-muted mb-4">Upload Summary</h3>
-
+      <p className="text-muted text-center mb-4">Upload Summary</p>
       <div className="input-group mb-4">
         <div class="input-group-prepend">
           <span class="input-group-text">File Name</span>
