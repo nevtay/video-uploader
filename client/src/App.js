@@ -20,18 +20,6 @@ function App() {
   const [videoTime, setVideoTime] = useState("");
   const [videoLocation, setVideoLocation] = useState("");
 
-  // upload function
-  const uploadVideo = () => {
-    const data = {
-      videoFile: videoFile,
-      title: videoTitle,
-      date: videoDate,
-      time: videoTime,
-      location: videoLocation,
-    };
-    console.log(data);
-  };
-
   // render video preview
   const renderVideo = useMemo(() => {
     return (
@@ -75,11 +63,11 @@ function App() {
             page={page}
             handlePage={setPage}
             fileName={fileName}
+            videoFile={videoFile}
             videoTitle={videoTitle}
             videoDate={videoDate}
             videoTime={videoTime}
             videoLocation={videoLocation}
-            handleVideoUpload={uploadVideo}
           />
         )}
         <div className="form-group text-center mt-3">
