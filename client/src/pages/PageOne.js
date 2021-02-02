@@ -130,7 +130,7 @@ const PageOne = ({
       </div>
       <div className="input-group mb-3">
         <div className="input-group-prepend">
-          <span className="input-group-text">Video Location</span>
+          <span className="input-group-text">Location (Postal Code)</span>
         </div>
         <input
           type="string"
