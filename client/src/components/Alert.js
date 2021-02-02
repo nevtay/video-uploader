@@ -8,6 +8,7 @@ const Alert = ({ message }) =>
         top: "0",
         left: "0",
         width: "100vw",
+        zIndex: 100,
       }}
       className="alert alert-success"
     >
@@ -20,6 +21,7 @@ const Alert = ({ message }) =>
         top: "0",
         left: "0",
         width: "100vw",
+        zIndex: 100,
       }}
       className="alert alert-danger"
     >
