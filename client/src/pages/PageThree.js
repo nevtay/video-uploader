@@ -98,11 +98,11 @@ const PageThree = ({
           disabled
         />
       </div>
-      <div className="form-group">
-        <input type="submit" value="Upload video" />
-      </div>
-      <div className="btn-group mt-4">
+      <div className="btn-group mt-1">
         <PrevButton handleOnClick={toPrevPage} page={page} />
+        <button className="btn btn-outline-primary" value="Upload video">
+          Upload Video
+        </button>
       </div>
     </>
   );
