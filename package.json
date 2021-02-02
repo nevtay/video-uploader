@@ -4,7 +4,7 @@
   "description": "React video uploader for technical assignment",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "install:both": "npm i && cd client && npm i",
     "start": "node server.js",
     "start:dev": "nodemon server.js",
     "client": "npm start --prefix client",
