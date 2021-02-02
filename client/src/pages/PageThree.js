@@ -39,13 +39,6 @@ const PageThree = ({
   const uploadVideo = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    // const data = {
-    //   videoFile: videoFile,
-    //   title: videoTitle,
-    //   date: videoDate,
-    //   time: videoTime,
-    //   location: videoLocation,
-    // };
     formData.append("file", videoFile);
     formData.append("title", videoTitle);
     formData.append("date", videoDate);
@@ -53,7 +46,6 @@ const PageThree = ({
     formData.append("location", videoLocation);
     setDisplayCancelVideo(true);
     setDisplayProgressBar(true);
-    console.log(formData);
     try {
       const res = await axios.post("/upload", formData, {
         headers: {
