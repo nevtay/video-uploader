@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import PrevButton from "../components/PrevButton";
 
 const PageThree = ({
@@ -11,6 +12,9 @@ const PageThree = ({
   videoTime,
   videoLocation,
 }) => {
+  const [uploadPercentage, setUploadPercentage] = useState(0);
+  const [displayProgress, setDisplayProgress] = useState(false);
+
   // move back one page
   const toPrevPage = (e) => {
     // e.preventDefault();
