@@ -14,6 +14,7 @@ const PageThree = ({
 }) => {
   const [uploadPercentage, setUploadPercentage] = useState(0);
   const [displayProgressBar, setDisplayProgressBar] = useState(false);
+  const [displayCancelVideo, setDisplayCancelVideo] = useState(false);
 
   // move back one page
   const toPrevPage = (e) => {
@@ -33,6 +34,7 @@ const PageThree = ({
       time: videoTime,
       location: videoLocation,
     };
+    setDisplayCancelVideo(true);
     setDisplayProgressBar(true);
   };
   return (
@@ -122,16 +124,29 @@ const PageThree = ({
       )}
       <div className="btn-group mt-3">
         <PrevButton handleOnClick={toPrevPage} page={page} />
-        <button
-          className="btn btn-outline-primary"
-          onClick={(e) => {
-            e.preventDefault();
-            uploadVideo();
-          }}
-          value="Upload video"
-        >
-          Upload Video
-        </button>
+        {!displayCancelVideo && (
+          <button
+            className="btn btn-outline-primary"
+            onClick={(e) => {
+              e.preventDefault();
+              uploadVideo();
+            }}
+            value="Upload video"
+          >
+            Upload Video
+          </button>
+        )}
+        {displayCancelVideo && (
+          <button
+            className="btn btn-outline-danger"
+            onClick={() => {
+              setDisplayCancelVideo(false);
+              setDisplayProgressBar(false);
+            }}
+          >
+            Cancel Upload
+          </button>
+        )}
       </div>
     </>
   );
