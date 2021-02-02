@@ -25,7 +25,10 @@ const PageTwo = ({ page, handlePage }) => {
   const [isChecked, setIsChecked] = useState(false);
   return (
     <>
-      <div className="form-group">
+      <div
+        style={{ height: "25vh", width: "auto", overflowY: "scroll" }}
+        className="form-group border-light bg-light text-dark p-2 rounded-1"
+      >
         <h3 className="mb-3">TERMS AND CONDITIONS</h3>
         <strong>Application of these terms 1. </strong>
         <p>
