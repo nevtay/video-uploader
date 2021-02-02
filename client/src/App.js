@@ -22,7 +22,7 @@ function App() {
 
   const renderVideo = useMemo(() => {
     return (
-      <div className="embed-responsive embed-responsive-16by9 mb-3">
+      <div className="embed-responsive embed-responsive-16by9 mb-2">
         <video
           src={!videoFile ? "" : URL.createObjectURL(videoFile)}
           type={fileType}
@@ -35,7 +35,7 @@ function App() {
 
   return (
     <div className="container-fluid">
-      <h1 className="display-3 mb-5 mt-5 text-center">Video Uploader</h1>
+      <h1 className="display-3 mb-4 mt-5 text-center">Video Uploader</h1>
       <form className="m-auto col-sm-10 col-md-7 col-lg-5">
         {videoFile && renderVideo}
         {page === 1 && (
