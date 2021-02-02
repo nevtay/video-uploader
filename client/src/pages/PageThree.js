@@ -17,7 +17,7 @@ const PageThree = ({
   videoLocation,
 }) => {
   const [uploadPercentage, setUploadPercentage] = useState(0);
-  const [uploadedMessage, setUploadedMessage] = useState("");
+  const [uploadedStatusMessage, setUploadedStatusMessage] = useState("");
   const [displayProgressBar, setDisplayProgressBar] = useState(false);
   const [displayCancelVideo, setDisplayCancelVideo] = useState(false);
 
@@ -31,16 +31,22 @@ const PageThree = ({
   };
 
   useEffect(() => {
-    if (uploadedMessage) {
+    if (uploadedStatusMessage) {
       setTimeout(() => {
-        setUploadedMessage("");
+        setUploadedStatusMessage("");
       }, 3500);
     }
-  }, [uploadedMessage]);
+  }, [uploadedStatusMessage]);
 
-  const cancelUpload = () => {
+  const CancelToken = axios.CancelToken;
+  let cancel;
+
+  const cancelUpload = (e) => {
+    e.preventDefault();
+    cancel();
     setDisplayCancelVideo(false);
     setDisplayProgressBar(false);
+    setUploadPercentage(0);
   };
 
   // upload function
@@ -59,6 +65,9 @@ const PageThree = ({
         headers: {
           "Content-Type": "multipart/form-data",
         },
+        cancelToken: new CancelToken((c) => {
+          cancel = c;
+        }),
         onUploadProgress: (progressEvent) => {
           setUploadPercentage(
             parseInt(
@@ -67,20 +76,23 @@ const PageThree = ({
           );
         },
       });
-      setUploadedMessage("Upload succeeded!");
-      setDisplayCancelVideo(false);
+      setUploadedStatusMessage("Upload succeeded!");
     } catch (err) {
+      if (axios.isCancel(err)) {
+        console.log("Upload cancelled!");
+      }
       if (err.response.status === 500) {
         console.log("Something went wrong with the upload");
+        setUploadedStatusMessage("Upload failed!");
       } else {
         console.log(err.response.data.msg);
+        setUploadedStatusMessage("Upload failed!");
       }
-      setUploadedMessage("Upload failed!");
     }
   };
   return (
     <>
-      {uploadedMessage && <Alert message={uploadedMessage} />}
+      {uploadedStatusMessage && <Alert message={uploadedStatusMessage} />}
       <h5 className="text-muted text-center mb-4">
         <strong>Upload Summary</strong>
       </h5>
@@ -165,16 +177,25 @@ const PageThree = ({
         </div>
       )}
       <div className="btn-group mt-3">
-        {!uploadPercentage === 100 && (
+        {/* Show PrevButton if upload is not in progress */}
+        {uploadPercentage === 0 && (
           <PrevButton handleOnClick={toPrevPage} page={page} />
         )}
+
+        {/* Show HomeButton upon successful upload */}
         {uploadPercentage === 100 && <HomeButton />}
-        {!displayCancelVideo && uploadPercentage !== 100 && (
+
+        {/* Show UploadButton if displayCancelButton is false and upload has not started  */}
+        {!displayCancelVideo && uploadPercentage === 0 && (
           <UploadButton uploadFunction={uploadVideo} />
         )}
-        {!uploadedMessage && displayCancelVideo && (
-          <CancelUploadButton cancelUploadFunction={cancelUpload} />
-        )}
+
+        {/* Show CancelUploadButton if upload is in progress and there are no upload status messages */}
+        {!uploadedStatusMessage &&
+          uploadPercentage > 0 &&
+          uploadPercentage < 100 && (
+            <CancelUploadButton cancelUploadFunction={cancelUpload} />
+          )}
       </div>
     </>
   );
