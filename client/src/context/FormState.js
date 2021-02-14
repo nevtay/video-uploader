@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useRef } from "react";
 import FormContext from "./formContext";
 import formReducer from "./formReducer";
 import {
@@ -16,6 +16,7 @@ const FormState = (props) => {
     fileName: "",
     fileType: "",
     videoFile: "",
+    videoFileRef: useRef(),
     videoTitle: "",
     videoDate: "",
     videoTime: "",
