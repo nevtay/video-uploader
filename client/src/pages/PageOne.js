@@ -22,7 +22,14 @@ const PageOne = ({
 }) => {
   const formContext = useContext(FormContext);
   console.log(formContext);
-  const { fileName, fileType, videoFile, setFileProperties } = formContext;
+  const {
+    fileName,
+    fileType,
+    videoFile,
+    videoFileRef,
+    setFileProperties,
+    clearVideoFile,
+  } = formContext;
 
   // move forward one page
   const toNextPage = () => {
@@ -84,7 +91,7 @@ const PageOne = ({
         <div className="custom-file">
           <input
             style={{ cursor: "pointer" }}
-            ref={fileInputRef}
+            ref={videoFileRef}
             type="file"
             name="fileName"
             accept="video/*"
@@ -108,9 +115,8 @@ const PageOne = ({
             <span
               style={{ cursor: "pointer" }}
               onClick={() => {
-                fileInputRef.current.value = "";
-                updateFileName("");
-                updateVideoFile("");
+                videoFileRef.current.value = "";
+                clearVideoFile();
               }}
               className="input-group-text"
             >
