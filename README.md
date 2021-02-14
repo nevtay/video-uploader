@@ -1,6 +1,8 @@
-# React Video Uploader TA
+<h1 style="text-align: center"> React Video Uploader </h1>
 
-## Installation
+<h2 style="color: #cfb41d; text-align: center">Revamps are currently ongoing. Check back later!</h2>
+
+<!-- ## Installation
 
 1. Clone this repository
 2. Run `npm run install:both` from the main folder (NOT inside of /client) to install front end and back end dependencies
@@ -43,4 +45,4 @@
        |___uploads
             |
             |__"uploadedFile.mp4"
-   ```
+   ``` -->
