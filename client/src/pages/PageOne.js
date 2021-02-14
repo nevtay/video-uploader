@@ -5,12 +5,6 @@ import FormContext from "../context/formContext";
 const PageOne = ({
   page,
   handlePage,
-  // fileName,
-  fileInputRef,
-  updateFileName,
-  updateFileType,
-  updateVideoFile,
-  // videoFile,
   videoTitle,
   updateVideoTitle,
   videoTime,
