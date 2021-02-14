@@ -9,6 +9,7 @@ import {
   SET_VIDEO_DATE,
   SET_VIDEO_TIME,
   SET_VIDEO_LOCATION,
+  CLEAR_UPLOADED_VIDEO,
 } from "./types";
 
 const FormState = (props) => {
@@ -45,6 +46,13 @@ const FormState = (props) => {
       });
     }
   };
+
+  const clearVideoFile = () => {
+    dispatch({
+      type: CLEAR_UPLOADED_VIDEO,
+    });
+  };
+
   return (
     <FormContext.Provider
       value={{
@@ -53,6 +61,7 @@ const FormState = (props) => {
         videoFile: state.videoFile,
         videoFileRef: state.videoFileRef,
         setFileProperties,
+        clearVideoFile,
       }}
     >
       {props.children}
