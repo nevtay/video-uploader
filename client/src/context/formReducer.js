@@ -1,6 +1,6 @@
 import {
-  SET_FILENAME,
-  SET_FILETYPE,
+  SET_FILE_NAME,
+  SET_FILE_TYPE,
   SET_VIDEO_FILE,
   SET_VIDEO_TITLE,
   SET_VIDEO_DATE,
@@ -10,11 +10,11 @@ import {
 
 export default (state, action) => {
   switch (action.type) {
-    case SET_FILENAME:
+    case SET_FILE_NAME:
       return {
         ...state,
       };
-    case SET_FILETYPE:
+    case SET_FILE_TYPE:
       return {
         ...state,
       };
