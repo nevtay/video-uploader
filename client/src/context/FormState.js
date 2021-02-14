@@ -25,7 +25,7 @@ const FormState = (props) => {
   const [state, dispatch] = useReducer(formReducer, initialState);
 
   //   set file name
-  const setFileType = (e) => {
+  const setFileProperties = (e) => {
     // handle cancelling file selection popup
     if (!e.target.files[0]) {
       return;
@@ -58,7 +58,7 @@ const FormState = (props) => {
         fileName: state.fileName,
         fileType: state.fileType,
         videoFile: state.videoFile,
-        setFileType,
+        setFileProperties,
       }}
     >
       {props.children}
