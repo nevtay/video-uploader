@@ -48,12 +48,9 @@ function App() {
               page={page}
               handlePage={setPage}
               fileName={fileName}
-              // fileInputRef={fileInputRef}
               videoFile={videoFile}
-              // updateVideoFile={setVideoFile}
               updateFileName={setFileName}
               videoFile={videoFile}
-              // updateFileType={setFileType}
               videoTitle={videoTitle}
               updateVideoTitle={setVideoTitle}
               videoDate={videoDate}
