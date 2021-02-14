@@ -22,7 +22,7 @@ const FormState = (props) => {
     videoLocation: "",
   };
 
-  const [state, dispatch] = useReducer(formReducer);
+  const [state, dispatch] = useReducer(formReducer, initialState);
 
   //   set file name
   const setFileType = (e) => {
