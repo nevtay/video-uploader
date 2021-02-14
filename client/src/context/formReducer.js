@@ -7,3 +7,10 @@ import {
   SET_VIDEO_TIME,
   SET_VIDEO_LOCATION,
 } from "./types";
+
+export default (state, action) => {
+  switch (action.type) {
+    default:
+      return state;
+  }
+};
