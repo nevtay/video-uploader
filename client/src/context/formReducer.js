@@ -6,6 +6,7 @@ import {
   SET_VIDEO_DATE,
   SET_VIDEO_TIME,
   SET_VIDEO_LOCATION,
+  CLEAR_UPLOADED_VIDEO,
 } from "./types";
 
 export default (state, action) => {
@@ -40,6 +41,13 @@ export default (state, action) => {
     case SET_VIDEO_LOCATION:
       return {
         ...state,
+      };
+    case CLEAR_UPLOADED_VIDEO:
+      return {
+        ...state,
+        fileType: "",
+        fileName: "",
+        videoFile: "",
       };
     default:
       return state;
