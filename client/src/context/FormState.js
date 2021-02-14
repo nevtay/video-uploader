@@ -56,7 +56,7 @@ const FormState = (props) => {
     <FormContext.Provider
       value={{
         fileName: state.fileName,
-        videoType: state.videoType,
+        fileType: state.fileType,
         videoFile: state.videoFile,
         setFileType,
       }}
