@@ -52,7 +52,18 @@ const FormState = (props) => {
     // updateFileName(e.target.files[0].name);
     // updateFileType(e.target.files[0].type);
   };
-  return <FormContext.Provider>{props.children}</FormContext.Provider>;
+  return (
+    <FormContext.Provider
+      value={{
+        fileName: state.fileName,
+        videoType: state.videoType,
+        videoFile: state.videoFile,
+        setFileType,
+      }}
+    >
+      {props.children}
+    </FormContext.Provider>
+  );
 };
 
 export default FormState;
