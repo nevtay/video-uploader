@@ -18,15 +18,10 @@ function App() {
 
   // metadata fields for page one
   const [fileName, setFileName] = useState("");
-  // const [fileType, setFileType] = useState("");
-  // const [videoFile, setVideoFile] = useState("");
   const [videoTitle, setVideoTitle] = useState("");
   const [videoDate, setVideoDate] = useState("");
   const [videoTime, setVideoTime] = useState("");
   const [videoLocation, setVideoLocation] = useState("");
-
-  // ref for input[type='file']
-  // const fileInputRef = useRef();
 
   // render video preview
   const renderVideo = useMemo(() => {
