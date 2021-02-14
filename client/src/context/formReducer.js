@@ -13,14 +13,17 @@ export default (state, action) => {
     case SET_FILE_NAME:
       return {
         ...state,
+        fileName: action.payload,
       };
     case SET_FILE_TYPE:
       return {
         ...state,
+        fileType: action.payload,
       };
     case SET_VIDEO_FILE:
       return {
         ...state,
+        videoFile: action.payload,
       };
     case SET_VIDEO_TITLE:
       return {
