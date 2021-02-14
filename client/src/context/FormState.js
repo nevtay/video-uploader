@@ -2,8 +2,8 @@ import React, { useReducer } from "react";
 import FormContext from "./formContext";
 import formReducer from "./formReducer";
 import {
-  SET_FILENAME,
-  SET_FILETYPE,
+  SET_FILE_NAME,
+  SET_FILE_TYPE,
   SET_VIDEO_FILE,
   SET_VIDEO_TITLE,
   SET_VIDEO_DATE,
