@@ -1,4 +1,5 @@
 import React, { useReducer } from "react";
+import FormContext from "./formContext";
 import formReducer from "./formReducer";
 import {
   SET_FILENAME,
@@ -22,7 +23,7 @@ const FormState = (props) => {
   };
 
   const [state, dispatch] = useReducer(formReducer);
-  return <div></div>;
+  return <FormContext.Provider>{props.children}</FormContext.Provider>;
 };
 
 export default FormState;
