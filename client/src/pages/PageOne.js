@@ -5,12 +5,12 @@ import FormContext from "../context/formContext";
 const PageOne = ({
   page,
   handlePage,
-  fileName,
+  // fileName,
   fileInputRef,
   updateFileName,
   updateFileType,
   updateVideoFile,
-  videoFile,
+  // videoFile,
   videoTitle,
   updateVideoTitle,
   videoTime,
@@ -21,6 +21,8 @@ const PageOne = ({
   updateVideoLocation,
 }) => {
   const formContext = useContext(FormContext);
+  console.log(formContext);
+  const { fileName, fileType, videoFile, setFileProperties } = formContext;
 
   // move forward one page
   const toNextPage = () => {
@@ -93,9 +95,7 @@ const PageOne = ({
                 // updateVideoFile(null);
                 return;
               }
-              updateVideoFile(e.target.files[0]);
-              updateFileName(e.target.files[0].name);
-              updateFileType(e.target.files[0].type);
+              setFileProperties(e);
             }}
             required
           />
