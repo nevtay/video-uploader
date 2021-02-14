@@ -86,8 +86,8 @@ const PageOne = ({
             className="custom-file-input"
             onChange={(e) => {
               if (!e.target.files[0]) {
-                updateFileName(null);
-                updateVideoFile(null);
+                // updateFileName(null);
+                // updateVideoFile(null);
                 return;
               }
               updateVideoFile(e.target.files[0]);
