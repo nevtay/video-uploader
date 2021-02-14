@@ -43,14 +43,6 @@ const FormState = (props) => {
         payload: e.target.files[0].type,
       });
     }
-    // if (!e.target.files[0]) {
-    //   updateFileName(null);
-    //   updateVideoFile(null);
-    //   return;
-    // }
-    // updateVideoFile(e.target.files[0]);
-    // updateFileName(e.target.files[0].name);
-    // updateFileType(e.target.files[0].type);
   };
   return (
     <FormContext.Provider
