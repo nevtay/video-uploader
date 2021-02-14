@@ -23,6 +23,35 @@ const FormState = (props) => {
   };
 
   const [state, dispatch] = useReducer(formReducer);
+
+  //   set file name
+  const setFileType = (e) => {
+    // handle cancelling file selection popup
+    if (!e.target.files[0]) {
+      return;
+    } else {
+      dispatch({
+        type: SET_VIDEO_FILE,
+        payload: e.target.files[0],
+      });
+      dispatch({
+        type: SET_FILE_NAME,
+        payload: e.target.files[0].name,
+      });
+      dispatch({
+        type: SET_FILE_TYPE,
+        payload: e.target.files[0].type,
+      });
+    }
+    // if (!e.target.files[0]) {
+    //   updateFileName(null);
+    //   updateVideoFile(null);
+    //   return;
+    // }
+    // updateVideoFile(e.target.files[0]);
+    // updateFileName(e.target.files[0].name);
+    // updateFileType(e.target.files[0].type);
+  };
   return <FormContext.Provider>{props.children}</FormContext.Provider>;
 };
 
