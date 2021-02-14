@@ -51,6 +51,7 @@ const FormState = (props) => {
         fileName: state.fileName,
         fileType: state.fileType,
         videoFile: state.videoFile,
+        videoFileRef: state.videoFileRef,
         setFileProperties,
       }}
     >
