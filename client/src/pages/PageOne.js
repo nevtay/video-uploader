@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import NextButton from "../components/NextButton";
+import FormContext from "../context/formContext";
 
 const PageOne = ({
   page,
@@ -19,6 +20,8 @@ const PageOne = ({
   videoLocation,
   updateVideoLocation,
 }) => {
+  const formContext = useContext(FormContext);
+
   // move forward one page
   const toNextPage = () => {
     if (page === 3) {
