@@ -5,7 +5,6 @@ import FormContext from "../context/formContext";
 const PageOne = ({
   page,
   handlePage,
-  updateVideoTitle,
   videoTime,
   updateVideoTime,
   videoDate,
