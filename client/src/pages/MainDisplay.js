@@ -18,7 +18,6 @@ function App() {
 
   // metadata fields for page one
   const [fileName, setFileName] = useState("");
-  const [videoTitle, setVideoTitle] = useState("");
   const [videoDate, setVideoDate] = useState("");
   const [videoTime, setVideoTime] = useState("");
   const [videoLocation, setVideoLocation] = useState("");
@@ -51,8 +50,6 @@ function App() {
               videoFile={videoFile}
               updateFileName={setFileName}
               videoFile={videoFile}
-              videoTitle={videoTitle}
-              updateVideoTitle={setVideoTitle}
               videoDate={videoDate}
               updateVideoDate={setVideoDate}
               videoTime={videoTime}
@@ -68,7 +65,6 @@ function App() {
               handlePage={setPage}
               fileName={fileName}
               videoFile={videoFile}
-              videoTitle={videoTitle}
               videoDate={videoDate}
               videoTime={videoTime}
               videoLocation={videoLocation}
