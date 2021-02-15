@@ -26,7 +26,7 @@ const FormState = (props) => {
 
   const [state, dispatch] = useReducer(formReducer, initialState);
 
-  //   set file name
+  // handle selected video for upload
   const setFileProperties = (e) => {
     // handle cancelling file selection popup
     if (!e.target.files[0]) {
@@ -47,6 +47,14 @@ const FormState = (props) => {
     }
   };
 
+  // set custom video title
+  const setVideoTitle = (e) => {
+    dispatch({
+      type: SET_VIDEO_TITLE,
+      payload: e.target.value,
+    });
+  };
+
   const clearVideoFile = () => {
     dispatch({
       type: CLEAR_UPLOADED_VIDEO,
@@ -60,7 +68,9 @@ const FormState = (props) => {
         fileType: state.fileType,
         videoFile: state.videoFile,
         videoFileRef: state.videoFileRef,
+        videoTitle: state.videoTitle,
         setFileProperties,
+        setVideoTitle,
         clearVideoFile,
       }}
     >
