@@ -5,7 +5,6 @@ import FormContext from "../context/formContext";
 const PageOne = ({
   page,
   handlePage,
-  videoTitle,
   updateVideoTitle,
   videoTime,
   updateVideoTime,
@@ -21,6 +20,8 @@ const PageOne = ({
     fileType,
     videoFile,
     videoFileRef,
+    videoTitle,
+    setVideoTitle,
     setFileProperties,
     clearVideoFile,
   } = formContext;
@@ -131,7 +132,7 @@ const PageOne = ({
           className="form-control"
           placeholder="Enter Title"
           value={videoTitle}
-          onChange={(e) => updateVideoTitle(e.target.value)}
+          onChange={setVideoTitle}
           required
         />
       </div>
