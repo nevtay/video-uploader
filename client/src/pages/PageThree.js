@@ -1,21 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import PrevButton from "../components/PrevButton";
 import HomeButton from "../components/HomeButton";
 import UploadButton from "../components/UploadButton";
 import CancelUploadButton from "../components/CancelUploadButton";
 import Alert from "../components/Alert";
+import FormContext from "../context/formContext";
 
 const PageThree = ({
   page,
-  fileName,
   handlePage,
-  videoFile,
-  videoTitle,
   videoDate,
   videoTime,
   videoLocation,
 }) => {
+  const formContext = useContext(FormContext);
+  const { fileName, videoFile, videoTitle } = formContext;
+
   const [uploadPercentage, setUploadPercentage] = useState(0);
   const [uploadedStatusMessage, setUploadedStatusMessage] = useState("");
   const [displayProgressBar, setDisplayProgressBar] = useState(false);
