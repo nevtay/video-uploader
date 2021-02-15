@@ -29,6 +29,7 @@ export default (state, action) => {
     case SET_VIDEO_TITLE:
       return {
         ...state,
+        videoTitle: action.payload,
       };
     case SET_VIDEO_DATE:
       return {
