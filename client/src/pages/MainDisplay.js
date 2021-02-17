@@ -7,7 +7,7 @@ import "../styles/main.scss";
 import FormState from "../context/FormState";
 import FormContext from "../context/formContext";
 
-function App() {
+function MainDisplay() {
   const formContext = useContext(FormContext);
   const { videoFile, fileType } = formContext;
   // constants
@@ -79,4 +79,4 @@ function App() {
   );
 }
 
-export default App;
+export default MainDisplay;
