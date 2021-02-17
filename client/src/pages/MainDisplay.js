@@ -52,8 +52,6 @@ function App() {
               videoFile={videoFile}
               videoDate={videoDate}
               updateVideoDate={setVideoDate}
-              videoTime={videoTime}
-              updateVideoTime={setVideoTime}
               videoLocation={videoLocation}
               updateVideoLocation={setVideoLocation}
             />
