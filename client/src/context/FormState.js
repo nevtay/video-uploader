@@ -77,8 +77,10 @@ const FormState = (props) => {
         videoFile: state.videoFile,
         videoFileRef: state.videoFileRef,
         videoTitle: state.videoTitle,
+        videoTime: state.videoTime,
         setFileProperties,
         setVideoTitle,
+        setVideoTime,
         clearVideoFile,
       }}
     >
