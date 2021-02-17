@@ -21,6 +21,7 @@ const FormState = (props) => {
     videoTitle: "",
     videoDate: "",
     videoTime: "",
+    videoTimeRef: useRef(),
     videoLocation: "",
   };
 
@@ -59,7 +60,7 @@ const FormState = (props) => {
   const setVideoTime = (e) => {
     dispatch({
       type: SET_VIDEO_TIME,
-      payload: e.target.value,
+      payload: state.videoTimeRef.current.value,
     });
   };
 
@@ -78,6 +79,7 @@ const FormState = (props) => {
         videoFileRef: state.videoFileRef,
         videoTitle: state.videoTitle,
         videoTime: state.videoTime,
+        videoTimeRef: state.videoTimeRef,
         setFileProperties,
         setVideoTitle,
         setVideoTime,
