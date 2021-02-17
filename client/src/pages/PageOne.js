@@ -5,8 +5,6 @@ import FormContext from "../context/formContext";
 const PageOne = ({
   page,
   handlePage,
-  videoTime,
-  updateVideoTime,
   videoDate,
   updateVideoDate,
   videoLocation,
@@ -16,11 +14,13 @@ const PageOne = ({
   console.log(formContext);
   const {
     fileName,
-    fileType,
     videoFile,
     videoFileRef,
     videoTitle,
+    videoTime,
+    videoTimeRef,
     setVideoTitle,
+    setVideoTime,
     setFileProperties,
     clearVideoFile,
   } = formContext;
@@ -92,8 +92,6 @@ const PageOne = ({
             className="custom-file-input"
             onChange={(e) => {
               if (!e.target.files[0]) {
-                // updateFileName(null);
-                // updateVideoFile(null);
                 return;
               }
               setFileProperties(e);
@@ -163,7 +161,8 @@ const PageOne = ({
           className="form-control"
           placeholder="Start Time (required)"
           value={videoTime}
-          onChange={(e) => updateVideoTime(e.target.value)}
+          ref={videoTimeRef}
+          onChange={() => setVideoTime(videoTimeRef.current.value)}
           required
         />
       </div>
