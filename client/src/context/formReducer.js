@@ -38,6 +38,7 @@ export default (state, action) => {
     case SET_VIDEO_TIME:
       return {
         ...state,
+        videoTime: action.payload,
       };
     case SET_VIDEO_LOCATION:
       return {
