@@ -55,6 +55,14 @@ const FormState = (props) => {
     });
   };
 
+  // set video time
+  const setVideoTime = (e) => {
+    dispatch({
+      type: SET_VIDEO_TIME,
+      payload: e.target.value,
+    });
+  };
+
   const clearVideoFile = () => {
     dispatch({
       type: CLEAR_UPLOADED_VIDEO,
