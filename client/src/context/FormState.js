@@ -57,7 +57,7 @@ const FormState = (props) => {
   };
 
   // set video time
-  const setVideoTime = (e) => {
+  const setVideoTime = () => {
     dispatch({
       type: SET_VIDEO_TIME,
       payload: state.videoTimeRef.current.value,
