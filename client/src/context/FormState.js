@@ -64,6 +64,14 @@ const FormState = (props) => {
     });
   };
 
+  // set video location
+  const setVideoLocation = (e) => {
+    dispatch({
+      type: SET_VIDEO_LOCATION,
+      payload: e.target.value,
+    });
+  };
+
   const clearVideoFile = () => {
     dispatch({
       type: CLEAR_UPLOADED_VIDEO,
@@ -80,9 +88,11 @@ const FormState = (props) => {
         videoTitle: state.videoTitle,
         videoTime: state.videoTime,
         videoTimeRef: state.videoTimeRef,
+        videoLocation: state.videoLocation,
         setFileProperties,
         setVideoTitle,
         setVideoTime,
+        setVideoLocation,
         clearVideoFile,
       }}
     >
