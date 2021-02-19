@@ -56,6 +56,14 @@ const FormState = (props) => {
     });
   };
 
+  // set video date
+  const setVideoDate = (e) => {
+    dispatch({
+      type: SET_VIDEO_DATE,
+      payload: e.target.value,
+    });
+  };
+
   // set video time
   const setVideoTime = () => {
     dispatch({
@@ -86,11 +94,13 @@ const FormState = (props) => {
         videoFile: state.videoFile,
         videoFileRef: state.videoFileRef,
         videoTitle: state.videoTitle,
+        videoDate: state.videoDate,
         videoTime: state.videoTime,
         videoTimeRef: state.videoTimeRef,
         videoLocation: state.videoLocation,
         setFileProperties,
         setVideoTitle,
+        setVideoDate,
         setVideoTime,
         setVideoLocation,
         clearVideoFile,
