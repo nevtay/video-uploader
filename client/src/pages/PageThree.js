@@ -196,7 +196,7 @@ const PageThree = ({ page, handlePage }) => {
           <UploadButton uploadFunction={uploadVideo} />
         )}
 
-        {/* Show CancelUploadButton if upload is in progress and there are no upload */}
+        {/* Show CancelUploadButton if upload is in progress (i.e. upload percentage is between 0 and 100) and there are no status messages (e.g. for failed or successful uploads) */}
         {!uploadedStatusMessage &&
           uploadPercentage > 0 &&
           uploadPercentage < 100 && (
