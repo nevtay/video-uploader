@@ -2,14 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import NextButton from "../components/NextButton";
 import FormContext from "../context/formContext";
 
-const PageOne = ({
-  page,
-  handlePage,
-  videoDate,
-  updateVideoDate,
-  videoLocation,
-  updateVideoLocation,
-}) => {
+const PageOne = ({ page, handlePage, videoDate, updateVideoDate }) => {
   const formContext = useContext(FormContext);
   console.log(formContext);
   const {
@@ -19,9 +12,11 @@ const PageOne = ({
     videoTitle,
     videoTime,
     videoTimeRef,
+    videoLocation,
+    setFileProperties,
     setVideoTitle,
     setVideoTime,
-    setFileProperties,
+    setVideoLocation,
     clearVideoFile,
   } = formContext;
 
@@ -176,7 +171,7 @@ const PageOne = ({
           className="form-control"
           placeholder="e.g. 190034"
           value={videoLocation}
-          onChange={(e) => updateVideoLocation(e.target.value)}
+          onChange={setVideoLocation}
         />
       </div>
       {errors.length > 0 ? (
