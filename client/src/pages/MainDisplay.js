@@ -40,14 +40,7 @@ function MainDisplay() {
         <h1 className="display-3 mb-4 mt-5 text-center">Video Uploader</h1>
         <form className="m-auto col-sm-10 col-md-7 col-lg-6">
           {videoFile && renderVideo}
-          {page === 1 && (
-            <PageOne
-              page={page}
-              handlePage={setPage}
-              videoDate={videoDate}
-              updateVideoDate={setVideoDate}
-            />
-          )}
+          {page === 1 && <PageOne page={page} handlePage={setPage} />}
           {page === 2 && <PageTwo page={page} handlePage={setPage} />}
           {page === 3 && (
             <PageThree
