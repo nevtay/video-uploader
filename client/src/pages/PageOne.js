@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import NextButton from "../components/NextButton";
 import FormContext from "../context/formContext";
 
-const PageOne = ({ page, handlePage, videoDate, updateVideoDate }) => {
+const PageOne = ({ page, handlePage, updateVideoDate }) => {
   const formContext = useContext(FormContext);
   console.log(formContext);
   const {
@@ -10,11 +10,13 @@ const PageOne = ({ page, handlePage, videoDate, updateVideoDate }) => {
     videoFile,
     videoFileRef,
     videoTitle,
+    videoDate,
     videoTime,
     videoTimeRef,
     videoLocation,
     setFileProperties,
     setVideoTitle,
+    setVideoDate,
     setVideoTime,
     setVideoLocation,
     clearVideoFile,
@@ -140,7 +142,7 @@ const PageOne = ({ page, handlePage, videoDate, updateVideoDate }) => {
           className="form-control"
           placeholder="Start Date (required)"
           value={videoDate}
-          onChange={(e) => updateVideoDate(e.target.value)}
+          onChange={setVideoDate}
           required
         />
       </div>
