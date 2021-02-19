@@ -42,15 +42,7 @@ function MainDisplay() {
           {videoFile && renderVideo}
           {page === 1 && <PageOne page={page} handlePage={setPage} />}
           {page === 2 && <PageTwo page={page} handlePage={setPage} />}
-          {page === 3 && (
-            <PageThree
-              page={page}
-              handlePage={setPage}
-              fileName={fileName}
-              videoFile={videoFile}
-              videoDate={videoDate}
-            />
-          )}
+          {page === 3 && <PageThree page={page} handlePage={setPage} />}
           <div className="form-group text-center mt-3">
             <small className="text-muted">
               Step {page} of {MAX_PAGES}
