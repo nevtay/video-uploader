@@ -2,9 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import NextButton from "../components/NextButton";
 import FormContext from "../context/uploadFields/formContext";
 
-const PageOne = ({ page, handlePage, updateVideoDate }) => {
+const PageOne = ({ page, handlePage }) => {
   const formContext = useContext(FormContext);
-  console.log(formContext);
   const {
     fileName,
     videoFile,
