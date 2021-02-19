@@ -44,10 +44,6 @@ function MainDisplay() {
             <PageOne
               page={page}
               handlePage={setPage}
-              fileName={fileName}
-              videoFile={videoFile}
-              updateFileName={setFileName}
-              videoFile={videoFile}
               videoDate={videoDate}
               updateVideoDate={setVideoDate}
             />
