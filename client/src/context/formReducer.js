@@ -43,6 +43,7 @@ export default (state, action) => {
     case SET_VIDEO_LOCATION:
       return {
         ...state,
+        videoLocation: action.payload,
       };
     case CLEAR_UPLOADED_VIDEO:
       return {
