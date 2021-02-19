@@ -4,8 +4,8 @@ import PageTwo from "./PageTwo";
 import PageThree from "./PageThree";
 import "../styles/main.scss";
 
-import FormState from "../context/FormState";
-import FormContext from "../context/formContext";
+import FormState from "../context/uploadFields/FormState";
+import FormContext from "../context/uploadFields/formContext";
 
 function MainDisplay() {
   const formContext = useContext(FormContext);

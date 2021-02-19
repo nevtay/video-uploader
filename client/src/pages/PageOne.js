@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import NextButton from "../components/NextButton";
-import FormContext from "../context/formContext";
+import FormContext from "../context/uploadFields/formContext";
 
 const PageOne = ({ page, handlePage, updateVideoDate }) => {
   const formContext = useContext(FormContext);

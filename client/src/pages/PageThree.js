@@ -5,7 +5,7 @@ import HomeButton from "../components/HomeButton";
 import UploadButton from "../components/UploadButton";
 import CancelUploadButton from "../components/CancelUploadButton";
 import Alert from "../components/Alert";
-import FormContext from "../context/formContext";
+import FormContext from "../context/uploadFields/formContext";
 
 const PageThree = ({ page, handlePage }) => {
   const formContext = useContext(FormContext);
