@@ -177,11 +177,7 @@ const PageOne = ({ page, handlePage }) => {
       </div>
       {errors.length > 0 ? (
         <div className="btn-group mt-3">
-          <NextButton
-            onClick={(e) => {
-              e.preventDefault();
-            }}
-          />
+          <NextButton />
         </div>
       ) : (
         <div className="btn-group mt-4">
