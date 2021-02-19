@@ -16,10 +16,6 @@ function MainDisplay() {
   // track current page of wizard form
   const [page, setPage] = useState(1);
 
-  // metadata fields for page one
-  const [fileName, setFileName] = useState("");
-  const [videoDate, setVideoDate] = useState("");
-
   // render video preview
   const renderVideo = useMemo(() => {
     return (
