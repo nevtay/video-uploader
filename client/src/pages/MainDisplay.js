@@ -19,8 +19,6 @@ function MainDisplay() {
   // metadata fields for page one
   const [fileName, setFileName] = useState("");
   const [videoDate, setVideoDate] = useState("");
-  const [videoTime, setVideoTime] = useState("");
-  const [videoLocation, setVideoLocation] = useState("");
 
   // render video preview
   const renderVideo = useMemo(() => {
@@ -52,8 +50,6 @@ function MainDisplay() {
               videoFile={videoFile}
               videoDate={videoDate}
               updateVideoDate={setVideoDate}
-              videoLocation={videoLocation}
-              updateVideoLocation={setVideoLocation}
             />
           )}
           {page === 2 && <PageTwo page={page} handlePage={setPage} />}
@@ -64,8 +60,6 @@ function MainDisplay() {
               fileName={fileName}
               videoFile={videoFile}
               videoDate={videoDate}
-              videoTime={videoTime}
-              videoLocation={videoLocation}
             />
           )}
           <div className="form-group text-center mt-3">
