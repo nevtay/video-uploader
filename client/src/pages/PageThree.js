@@ -7,15 +7,16 @@ import CancelUploadButton from "../components/CancelUploadButton";
 import Alert from "../components/Alert";
 import FormContext from "../context/formContext";
 
-const PageThree = ({
-  page,
-  handlePage,
-  videoDate,
-  videoTime,
-  videoLocation,
-}) => {
+const PageThree = ({ page, handlePage }) => {
   const formContext = useContext(FormContext);
-  const { fileName, videoFile, videoTitle } = formContext;
+  const {
+    fileName,
+    videoFile,
+    videoTitle,
+    videoDate,
+    videoTime,
+    videoLocation,
+  } = formContext;
 
   const [uploadPercentage, setUploadPercentage] = useState(0);
   const [uploadedStatusMessage, setUploadedStatusMessage] = useState("");
