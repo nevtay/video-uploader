@@ -1,7 +1,7 @@
 import React, { useReducer, useRef } from "react";
 import PagesContext from "./pagesContext";
 import PagesReducer from "./pagesReducer";
-import { TO_NEXT_PAGE, TO_PREV_PAGE } from "./types";
+import { TO_NEXT_PAGE, TO_PREV_PAGE, MAX_PAGES } from "./types";
 
 const PagesState = (props) => {
   const initialState = {
