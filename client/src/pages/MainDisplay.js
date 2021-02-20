@@ -15,8 +15,6 @@ function MainDisplay() {
   const pagesContext = useContext(PagesContext);
   const { currentPage, lastPage } = pagesContext;
 
-  // constants
-
   // track current page of wizard form
   const [page, setPage] = useState(1);
 
@@ -39,9 +37,9 @@ function MainDisplay() {
       <h1 className="display-3 mb-4 mt-5 text-center">Video Uploader</h1>
       <form className="m-auto col-sm-10 col-md-7 col-lg-6">
         {videoFile && renderVideo}
-        {page === 1 && <PageOne page={page} handlePage={setPage} />}
-        {page === 2 && <PageTwo page={page} handlePage={setPage} />}
-        {page === 3 && <PageThree page={page} handlePage={setPage} />}
+        {currentPage === 1 && <PageOne />}
+        {currentPage === 2 && <PageTwo />}
+        {currentPage === 3 && <PageThree />}
         <div className="form-group text-center mt-3">
           <small className="text-muted">
             Step {currentPage} of {lastPage}
