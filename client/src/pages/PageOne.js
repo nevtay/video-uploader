@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import NextButton from "../components/NextButton";
 import FormContext from "../context/uploadFields/formContext";
 
-const PageOne = ({ page, handlePage }) => {
+const PageOne = () => {
   const formContext = useContext(FormContext);
   const {
     fileName,
@@ -20,15 +20,6 @@ const PageOne = ({ page, handlePage }) => {
     setVideoLocation,
     clearVideoFile,
   } = formContext;
-
-  // move forward one page
-  const toNextPage = () => {
-    if (page === 3) {
-      return;
-    } else {
-      handlePage((page) => page + 1);
-    }
-  };
 
   const [errors, setErrors] = useState([]);
 
@@ -176,12 +167,12 @@ const PageOne = ({ page, handlePage }) => {
         />
       </div>
       {errors.length > 0 ? (
-        <div className="btn-group mt-3">
-          <NextButton />
+        <div className="btn-group mt-4">
+          <NextButton hasError={true} />
         </div>
       ) : (
         <div className="btn-group mt-4">
-          <NextButton handleOnClick={toNextPage} page={page} />
+          <NextButton />
         </div>
       )}
     </>
