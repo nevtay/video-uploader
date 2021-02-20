@@ -5,7 +5,7 @@ import { TO_NEXT_PAGE, TO_PREV_PAGE, MAX_PAGES } from "./types";
 
 const PagesState = (props) => {
   const initialState = {
-    currentPage: "1",
+    currentPage: 1,
     lastPage: MAX_PAGES,
   };
   const [state, dispatch] = useReducer(PagesReducer, initialState);
