@@ -7,9 +7,15 @@ import "../styles/main.scss";
 import FormState from "../context/uploadFields/FormState";
 import FormContext from "../context/uploadFields/formContext";
 
+import PagesContext from "../context/pages/pagesContext";
+
 function MainDisplay() {
   const formContext = useContext(FormContext);
   const { videoFile, fileType } = formContext;
+
+  const pagesContext = useContext(PagesContext);
+  console.log("PP", pagesContext);
+
   // constants
   const MAX_PAGES = 3;
 
