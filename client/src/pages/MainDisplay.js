@@ -4,7 +4,6 @@ import PageTwo from "./PageTwo";
 import PageThree from "./PageThree";
 import "../styles/main.scss";
 
-import FormState from "../context/uploadFields/FormState";
 import FormContext from "../context/uploadFields/formContext";
 
 import PagesContext from "../context/pages/pagesContext";
