@@ -13,10 +13,9 @@ function MainDisplay() {
   const { videoFile, fileType } = formContext;
 
   const pagesContext = useContext(PagesContext);
-  console.log("PP", pagesContext);
+  const { currentPage, lastPage } = pagesContext;
 
   // constants
-  const MAX_PAGES = 3;
 
   // track current page of wizard form
   const [page, setPage] = useState(1);
@@ -45,7 +44,7 @@ function MainDisplay() {
         {page === 3 && <PageThree page={page} handlePage={setPage} />}
         <div className="form-group text-center mt-3">
           <small className="text-muted">
-            Step {page} of {MAX_PAGES}
+            Step {currentPage} of {lastPage}
           </small>
         </div>
       </form>
