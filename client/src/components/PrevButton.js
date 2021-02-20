@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import PagesContext from "../context/pages/pagesContext";
 
-const PrevButton = ({ handleOnClick }) => {
+const PrevButton = () => {
+  const pagesContext = useContext(PagesContext);
+  const { toPrevPage } = pagesContext;
   return (
     <>
-      <button className="btn btn-outline-secondary" onClick={handleOnClick}>
+      <button className="btn btn-outline-secondary" onClick={toPrevPage}>
         Previous
       </button>
     </>

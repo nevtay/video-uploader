@@ -184,9 +184,7 @@ const PageThree = ({ page, handlePage }) => {
       )}
       <div className="btn-group mt-3">
         {/* Show PrevButton if upload is not in progress */}
-        {uploadPercentage === 0 && (
-          <PrevButton handleOnClick={toPrevPage} page={page} />
-        )}
+        {uploadPercentage === 0 && <PrevButton />}
 
         {/* Show HomeButton upon successful upload */}
         {uploadPercentage === 100 && <HomeButton />}
