@@ -1,4 +1,4 @@
-import React, { useReducer, useRef } from "react";
+import React, { useReducer } from "react";
 import PagesContext from "./pagesContext";
 import PagesReducer from "./pagesReducer";
 import { TO_NEXT_PAGE, TO_PREV_PAGE, MAX_PAGES } from "./types";
@@ -37,3 +37,5 @@ const PagesState = (props) => {
     </PagesContext.Provider>
   );
 };
+
+export default PagesState;
