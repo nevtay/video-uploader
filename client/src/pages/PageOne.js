@@ -72,6 +72,7 @@ const PageOne = () => {
         <div className="custom-file">
           <input
             style={{ cursor: "pointer" }}
+            id="file-input"
             ref={videoFileRef}
             type="file"
             name="fileName"
