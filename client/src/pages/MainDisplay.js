@@ -15,9 +15,6 @@ function MainDisplay() {
   const pagesContext = useContext(PagesContext);
   const { currentPage, lastPage } = pagesContext;
 
-  // track current page of wizard form
-  const [page, setPage] = useState(1);
-
   // render video preview
   const renderVideo = useMemo(() => {
     return (
